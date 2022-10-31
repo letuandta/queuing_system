@@ -3,7 +3,7 @@ import React, { ReactNode } from 'react';
 import { IRouter } from './interface';
 
 type ILoadable = {
-  loading: ReactNode;
+  loading?: ReactNode | JSX.Element | React.MemoExoticComponent<() => JSX.Element>;
   routers: Array<IRouter>;
 };
 

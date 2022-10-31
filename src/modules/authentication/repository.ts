@@ -1,5 +1,7 @@
 import httpRepository from '@core/repository/http';
 import User from '@modules/user/entity';
+import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { fbRepositorires } from 'src/firebase/auth';
 
 const register = (payload: any) => {
   return httpRepository.execute({
@@ -41,27 +43,30 @@ const updatePassword = (payload: any) => {
 };
 
 export interface ILoginDTO {
-  userName: string;
+  username: string;
   password: string;
 }
 
 const login = (payload: ILoginDTO) => {
-  return httpRepository.execute({
-    path: '/api/Users/Login',
-    method: 'post',
-    payload,
-    config: { isPrivate: false },
+  return fbRepositorires.execute({
+    asyncFunction: signInWithEmailAndPassword,
+    payload: payload
   });
+  // return httpRepository.execute({
+  //   path: '/api/Users/Login',
+  //   method: 'post',
+  //   payload,
+  //   config: { isPrivate: false },
+  // });
 };
 
 const logout = () => {
-  return httpRepository.execute({
-    path: '/api/Users/logout',
-    method: 'get',
-    showSuccess: false,
-    config: { isPrivate: true },
-  });
+  return fbRepositorires.execute({
+    asyncFunction: signOut
+  })
 };
+
+
 const resetPass = (payload: any, otp: string) => {
   return httpRepository.execute({
     path: `/api/Users/resetForgotPassword/key=${otp}`,
@@ -74,13 +79,7 @@ const resetPass = (payload: any, otp: string) => {
 };
 
 const getProfile = () => {
-  return httpRepository.execute({
-    path: '/api/Users/Profile',
-    showSuccess: false,
-    convert: res => {
-      return new User(res);
-    },
-  });
+  return {}
 };
 
 const updateProfile = (payload: any) => {

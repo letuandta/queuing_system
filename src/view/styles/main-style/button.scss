@@ -11,15 +11,16 @@ button.ant-btn.cancel-button,
   font-size: $fs-2;
   padding: 0;
   transition: All 0.3s;
-  border: 1px solid $color-button-normal;
+  border: 1px solid $orange_alta_500;
+  box-shadow: 0px 0px 6px $shadow_alta;
 
-  background: $color-button-normal;
-  color: $color-button-cancel;
+  background-color: $orange-alta !important;
+  color: white !important;
 
   &:hover {
-    background: $color-button-cancel;
-    color: $color-button-normal;
-    border: 1px solid $color-button-normal;
+    background: $orange_alta_300 !important;
+    color: white !important;
+    border: 1px solid $orange-alta;
   }
 
   &:focus {
@@ -76,7 +77,7 @@ button.ant-btn.ant-btn-dangerous,
   text-align: center;
 }
 
-.ant-modal-confirm .ant-modal-confirm-btns .ant-btn + .ant-btn {
+.ant-modal-confirm .ant-modal-confirm-btns .ant-btn+.ant-btn {
   background: $color-button-normal;
   color: $color-button-cancel;
 
@@ -87,11 +88,7 @@ button.ant-btn.ant-btn-dangerous,
   }
 }
 
-.modal-delete-confirm
-  .ant-modal-content
-  .ant-modal-body
-  .ant-modal-confirm-btns
-  button:first-child {
+.modal-delete-confirm .ant-modal-content .ant-modal-body .ant-modal-confirm-btns button:first-child {
   &:hover {
     background: $color-button-normal;
     color: $color-button-cancel;

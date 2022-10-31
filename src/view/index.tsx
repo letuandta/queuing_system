@@ -4,9 +4,10 @@ import { Provider } from 'react-redux';
 import { HashRouter as Router } from 'react-router-dom';
 import { PersistGate } from 'redux-persist/integration/react';
 import store, { persistor } from 'src/core/store/redux';
+import { FirebaseConfig } from 'src/firebase/configs';
 
 import App from './App';
-
+FirebaseConfig.getInstance();
 ReactDOM.render(
   <Router>
     <Provider store={store}>
