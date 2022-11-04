@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 
 import { UilEllipsisV } from '@iconscout/react-unicons';
 import { IRouter } from '@routers/interface';
+import { useAltaIntl } from '@shared/hook/useTranslate';
 
 interface IMenu {
   data: IRouter;
@@ -37,7 +38,7 @@ const SubItem: React.FC<IMenu> = (props: IMenu) => {
             className={active}
             key={index}
             onClick={() => {
-              history.push(path);
+              history(path);
             }}
           >
             <FormattedMessage id={linkNav.name} defaultMessage={linkNav.name} />
@@ -51,13 +52,15 @@ const SubItem: React.FC<IMenu> = (props: IMenu) => {
 const Item: React.FC<IMenu> = (props: IMenu) => {
   const item = props.data;
   const location = useLocation();
+
+  const { formatMessage } = useAltaIntl();
   const activePath = item.menu?.activePath;
   const active = useMemo(() => {
     if (activePath) {
       const activeMenu = location.pathname.match(activePath);
       return activeMenu ? 'menu-active' : '';
     }
-    return matchPath(location.pathname, { path: item.path, exact: item.exact })
+    return matchPath(location.pathname, { path: item?.path, exact: item?.exact })
       ? 'menu-active'
       : '';
   }, [item.exact, activePath, item.path, location.pathname]);
@@ -69,27 +72,27 @@ const Item: React.FC<IMenu> = (props: IMenu) => {
   if (subMenu && subMenu.length > 0) {
     return (
       <div className={`menu--component--item three-dot ${active}`} key={item.path}>
-        <div className="item-label">
-          <span>
-            {item.menu?.icon && <span className="item-hover__icon">{item.menu.icon}</span>}
-            <a className="item__nav">
-              <FormattedMessage id={item.name} defaultMessage={item.name} />
-            </a>
-          </span>
-
-          <Dropdown
-            overlay={<SubItem data={item} activePath={location.pathname} />}
-            placement="bottomLeft"
-            trigger={['hover']}
-          >
+        <Dropdown
+          overlay={<SubItem data={item} activePath={location.pathname} />}
+          placement="bottomLeft"
+          trigger={['hover']}
+        ><div className="item-label">
+            <span>
+              {item.menu?.icon && <span className="item-hover__icon">{item.menu.icon}</span>}
+              <a className="item__nav">
+                <FormattedMessage id={item.name} defaultMessage={item.name} />
+              </a>
+            </span>
             <span className="icon-3dot">
               <UilEllipsisV />
             </span>
-          </Dropdown>
-        </div>
+          </div>
+        </Dropdown>
       </div>
     );
   }
+
+  console.log(item)
 
   return (
     <div className={`menu--component--item ${active}`}>
@@ -97,7 +100,7 @@ const Item: React.FC<IMenu> = (props: IMenu) => {
         <span>
           {item.menu?.icon && <span className="item-hover__icon">{item.menu.icon}</span>}
           <span className="item__nav">
-            <FormattedMessage id={item.name} defaultMessage={item.name} />
+            <FormattedMessage id={item.name} defaultMessage={item.name ? formatMessage(item.name) : item.name} />
           </span>
         </span>
       </Link>

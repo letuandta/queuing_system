@@ -91,12 +91,14 @@ const Login: React.FC = () => {
                   status={errorStatus !== '' ? "error" : ""}
                 />
               </Form.Item>
-              {errorStatus === '' && <Link to={""} className="forgot-password" >Quên mật khẩu?</Link>}
+              {errorStatus === '' && <Link to={"/forgot-password"} className="forgot-password" >Quên mật khẩu?</Link>}
               {errorStatus && <RenderError errorStatus={errorStatus} />}
+              <br />
+              <br />
               <Button htmlType="submit" className="">
                 {formatMessage('login.button.account')}
               </Button>
-              {errorStatus !== '' && <Link to={""} className="forgot-password" style={{ textAlign: "center" }}>Quên mật khẩu?</Link>}
+              {errorStatus !== '' && <Link to={"/forgot-password"} className="forgot-password" style={{ textAlign: "center" }}>Quên mật khẩu?</Link>}
             </Form>
           </div>
         </div>

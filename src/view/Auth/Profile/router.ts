@@ -2,8 +2,7 @@ import { IRouter } from '@routers/interface';
 
 export const routerViewProfile: IRouter = {
   path: '/profile',
-  name: 'profile.name',
+  name: 'common.profile',
   loader: import('./index'),
-  exact: true,
-  masterLayout: false,
+  exact: true
 };

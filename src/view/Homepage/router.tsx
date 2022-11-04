@@ -1,8 +1,15 @@
 import { IRouter } from '@routers/interface';
-
+import { DashboardIcon } from '@shared/components/iconsComponent';
+import React from 'react';
 export const routerHomepage: IRouter = {
-  path: '/',
-  loader: import('./home'),
+  path: '/home',
+  loader: import('./index'),
   exact: true,
-  name: 'homepage.name', //translate here for breadcrumb and sidebar
+  name: 'common.homepage',
+  menu: {
+    icon: <DashboardIcon />,
+    'exact': true,
+    activePath: /home/i,
+    'hideInNavbar': false
+  }
 };

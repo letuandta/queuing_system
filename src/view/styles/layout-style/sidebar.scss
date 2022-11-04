@@ -1,4 +1,5 @@
 @import './header.scss';
+@import '../variable';
 
 $size-img: 10rem;
 $padding-inside: 1rem;
@@ -18,7 +19,7 @@ $padding-inside: 1rem;
   background-color: $color-sidebar;
   border-radius: 1.6rem;
 
-  & > .w-100 {
+  &>.w-100 {
     background-color: $color-sidebar;
     height: 100vh;
     border-radius: 1.6rem;
@@ -81,7 +82,6 @@ $padding-inside: 1rem;
     }
 
     .menu {
-      margin: 0 0.8rem 0 1rem;
 
       .item-label {
         padding: 1rem;
@@ -93,7 +93,7 @@ $padding-inside: 1rem;
         justify-content: space-between;
         height: 5rem;
 
-        & > span:first-child {
+        &>span:first-child {
           display: flex;
           align-items: center;
           // padding: 0rem 2rem;
@@ -106,7 +106,7 @@ $padding-inside: 1rem;
         .item__nav {
           @include text-wrap;
           font-weight: $font-weight-medium;
-          font-size: 1.6rem;
+          font-size: 1.8rem;
           color: $color-text-item-sidebar;
           height: 100%;
           max-width: 20vw;
@@ -126,12 +126,12 @@ $padding-inside: 1rem;
             font-size: 3rem;
             width: 2.6rem;
             height: 2.6rem;
-            color: $color-text-item-sidebar;
+            stroke: $color-text-item-sidebar;
           }
         }
 
         .icon-3dot svg {
-          color: $color-text-item-sidebar;
+          stroke: $color-text-item-sidebar;
           font-size: 2.2rem;
           width: 2.2rem;
           height: 2.2rem;
@@ -139,15 +139,13 @@ $padding-inside: 1rem;
       }
 
       .menu--component--item {
-        border-radius: 0.6rem;
         margin-bottom: 1rem;
         transition: background-color 1s;
       }
 
       .menu--component--item.menu-active {
         position: relative;
-        background: $color-primary;
-        border-radius: 0.8rem;
+        background: $orange-alta;
         transition: background-color 1s;
 
         .item__nav {
@@ -156,12 +154,12 @@ $padding-inside: 1rem;
         }
 
         .item-hover__icon svg {
-          color: $color-white;
+          stroke: $color-white;
           transition: color 1s;
         }
 
         .icon-3dot svg {
-          color: $color-white;
+          stroke: $color-white;
         }
 
         .icon-3dot {
@@ -174,7 +172,7 @@ $padding-inside: 1rem;
         position: relative;
 
         .icon-3dot {
-          font-size: 3rem;
+          font-size: 3rem !important;
           margin-left: 1.2rem;
           margin-top: -7px;
         }
@@ -196,32 +194,57 @@ $padding-inside: 1rem;
   cursor: pointer;
 }
 
-.ant-menu {
-  border-radius: 0.4rem;
-}
-
-.ant-menu-root.ant-menu-vertical,
-.ant-menu-root.ant-menu-vertical-left,
-.ant-menu-root.ant-menu-vertical-right,
-.ant-menu-root.ant-menu-inline {
+.ant-dropdown-menu {
+  width: 100%;
+  border-radius: 0 1rem 1rem 0 !important;
   box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
     0 9px 28px 8px rgba(0, 0, 0, 0.05);
   overflow: hidden;
   left: 110% !important;
   position: absolute;
   top: -1rem;
-  transform: translate(0px, -50%);
+  transform: translate(-13%, -30%);
 
-  //width: 26.5rem;
-  .ant-menu-item {
-    font-size: 1.6rem;
-    margin: 0;
+  .ant-dropdown-menu-item {
+    padding: 10px;
     background-color: $color-white;
-    color: $color-secondary-dark;
+    color: $color-text-item-sidebar;
+
+    &:hover {
+      color: $orange_alta_500;
+      background-color: $orange_alta_50;
+    }
   }
 
   .ant-menu-item-selected {
-    font-weight: 500;
+    color: $color-white;
+    background-color: $orange_alta_400;
+  }
+}
+
+.ant-menu-root.ant-menu-vertical,
+.ant-menu-root.ant-menu-vertical-left,
+.ant-menu-root.ant-menu-vertical-right,
+.ant-menu-root.ant-menu-inline,
+.ant-menu {
+  box-shadow: 0 3px 6px -4px rgba(0, 0, 0, 0.12), 0 6px 16px 0 rgba(0, 0, 0, 0.08),
+    0 9px 28px 8px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  left: 110% !important;
+  position: absolute;
+  top: -1rem;
+  transform: translate(0, -75%);
+
+  //width: 26.5rem;
+  .ant-menu-item {
+    font-size: 3rem !important;
+    margin: 0;
+    background-color: $color-white;
+    color: $orange-alta;
+  }
+
+  .ant-menu-item-selected {
+    font-weight: bold !important;
     color: $color-primary;
     background-color: $color-background;
   }

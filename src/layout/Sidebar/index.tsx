@@ -4,7 +4,7 @@ import { useLocation, useNavigate } from 'react-router';
 import { UilAngleRight } from '@iconscout/react-unicons';
 import { IRouter } from '@routers/interface';
 import { privatePage } from '@routers/mainRouter';
-import { logo } from '@shared/assets/images';
+import { logo } from '@shared/assets/svg';
 import CheckPermission from '@shared/hoc/CheckPermission';
 
 import MenuItem from './ItemMenu';
@@ -16,6 +16,8 @@ interface IRenderMenuProps {
 
 const renderMenu: React.FC<IRenderMenuProps> = (props: IRenderMenuProps) => {
   const listNav = props.listNav.slice(1, props.listNav.length + 1);
+  console.log('listNav:', listNav);
+
   return (
     <>
       {listNav.map((item: IRouter, index) => {

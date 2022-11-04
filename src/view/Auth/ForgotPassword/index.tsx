@@ -32,40 +32,53 @@ const ForgotPassword = () => {
       });
   };
 
+  const cancle = () => {
+    history("/login")
+  }
+
   return (
     <>
       <div className="main-form auth-form">
-        <h3 className="main-title">{formatMessage('forgot.password.title')}</h3>
         {!checkSuccessEmail ? (
           <>
-            <p className="description">{formatMessage('forgot.password.description')}</p>
             <div className="content-form">
-              <Form
-                name="forgotPassword"
-                layout="vertical"
-                onFinish={onSubmitEmail}
-                onFinishFailed={onFinishFailed}
-                requiredMark={false}
-              >
-                <Form.Item
-                  label={formatMessage('forgot.password.email')}
-                  name="email"
-                  rules={[
-                    {
-                      required: true,
-                    },
-                    {
-                      type: 'email',
-                    },
-                  ]}
+              <img className="logo-alta-form" src={require('../../../shared/assets/svg/Logo_alta.svg')}></img>
+              <div className="input-form">
+                <p className="main-title">{formatMessage('forgot.password.title')}</p>
+                <Form
+                  name="forgotPassword"
+                  layout="vertical"
+                  onFinish={onSubmitEmail}
+                  onFinishFailed={onFinishFailed}
+                  requiredMark={false}
                 >
-                  <Input placeholder="david@gmail.com" />
-                </Form.Item>
-                {errorStatus && <RenderError errorStatus={errorStatus} />}
-                <Button htmlType="submit" className="normal-button">
-                  {formatMessage('forgot.password.button.accept')}
-                </Button>
-              </Form>
+                  <Form.Item
+                    label={formatMessage('forgot.password.description')}
+                    name="email"
+                    rules={[
+                      {
+                        required: true,
+                      },
+                      {
+                        type: 'email',
+                      },
+                    ]}
+                  >
+                    <Input placeholder="david@gmail.com" />
+                  </Form.Item>
+                  {errorStatus && <RenderError errorStatus={errorStatus} />}
+                  <br />
+                  <br />
+                  <Form.Item className='form-item-multi-button'>
+                    <Button onClick={() => cancle()} className="cancel-button">
+                      {formatMessage('forgot.password.button.cancel')}
+                    </Button>
+                    <Button htmlType="submit" className="normal-button">
+                      {formatMessage('forgot.password.button.next')}
+                    </Button>
+                  </Form.Item>
+                </Form>
+              </div>
             </div>
           </>
         ) : (
@@ -73,11 +86,10 @@ const ForgotPassword = () => {
             <p>{formatMessage('forgot.password.notification')}</p>
           </div>
         )}
+        <div className='thumnail-login'>
+          <img className="thumnail-login-image" src={require('../../../shared/assets/svg/Thumnail_reset_password.svg')}></img>
+        </div>
       </div>
-      <NavLinkBottom
-        navLink={formatMessage('link.return.login')}
-        onClick={() => history.push('/login')}
-      />
     </>
   );
 };

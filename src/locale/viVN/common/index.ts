@@ -92,4 +92,13 @@ export default {
   'common.report': 'Báo cáo',
   'common.page': 'Trang',
   'common.search': 'Tìm kiếm',
+  'common.profile': 'Thông tin cá nhân',
+  'common.homepage': 'Dashboard',
+  'common.device': 'Thiết bị',
+  'common.service': 'Dịch vụ',
+  'common.provide.number': 'Cấp số',
+  'common.setting.system': 'Cài đặt hệ thống',
+  'common.manage.role': 'Quản lý vai trò',
+  'common.manage.account': 'Quản lý tài khoảng',
+  'common.log.user': 'Nhật kí người dùng'
 };
