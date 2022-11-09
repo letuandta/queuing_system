@@ -3,7 +3,7 @@ import './styles.scss';
 import { Button } from 'antd';
 import React from 'react';
 import { useIntl } from 'react-intl';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 import { logo } from '@assets/images';
 
@@ -21,7 +21,7 @@ const PageError = () => {
         <div className="page-not-found">{intl.formatMessage({ id: 'common.page.notfound' })}</div>
         <p className="note-404">{intl.formatMessage({ id: 'common.404note' })}</p>
         <Button className="btn-err">
-          <a onClick={() => history.push('/')}>{intl.formatMessage({ id: 'common.back' })}</a>
+          <a onClick={() => history('/')}>{intl.formatMessage({ id: 'common.back' })}</a>
         </Button>
       </div>
     </div>

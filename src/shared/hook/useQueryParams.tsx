@@ -1,4 +1,4 @@
-import { useLocation } from 'react-router';
+import { useLocation } from 'react-router-dom';
 
 export function useQueryParams() {
   return new URLSearchParams(useLocation().search);
@@ -10,7 +10,7 @@ export function toString(data: any) {
   }
   try {
     return JSON.stringify(data);
-  } catch (e) {}
+  } catch (e) { }
 }
 
 export function toSearch(queryParams: any) {

@@ -1,16 +1,14 @@
-import { Button, Checkbox, Form, Input } from 'antd';
+import { Button, Form, Input } from 'antd';
 import '../styles.scss';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
 
 import { useSingleAsync } from '@hook/useAsync';
 import { useAltaIntl } from '@hook/useTranslate';
 import authenticationPresenter from '@modules/authentication/presenter';
 
 import RenderError from '../components/RenderError';
-import { Link } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { setToken, TokenSelector } from '@modules/authentication/profileStore';
+import { Link, useNavigate } from 'react-router-dom';
+import { useSelector } from 'react-redux';
 import { RootState } from '@modules';
 
 
@@ -23,12 +21,11 @@ const Login: React.FC = () => {
   const onFinishFailed = () => {
     setErrorStatus('');
   };
-  const dispatch = useDispatch()
   const token = useSelector((state: RootState) => state.profile.token);
 
 
   const onSubmitAccount = (values: any) => {
-    console.log(values)
+    console.log(values);
     delete values.remember;
     document.cookie = `remember_me=${true}; SameSite=None; Secure`;
     loginByAccount
@@ -45,7 +42,7 @@ const Login: React.FC = () => {
       });
   };
 
-  console.log("token  ", token)
+  console.log('token  ', token);
 
   return (
     <>
@@ -74,7 +71,7 @@ const Login: React.FC = () => {
               >
                 <Input
                   placeholder={formatMessage('auth.email')}
-                  status={errorStatus !== '' ? "error" : ""}
+                  status={errorStatus !== '' ? 'error' : ''}
                 />
               </Form.Item>
               <Form.Item
@@ -88,17 +85,17 @@ const Login: React.FC = () => {
               >
                 <Input.Password
                   placeholder={formatMessage('auth.password')}
-                  status={errorStatus !== '' ? "error" : ""}
+                  status={errorStatus !== '' ? 'error' : ''}
                 />
               </Form.Item>
-              {errorStatus === '' && <Link to={"/forgot-password"} className="forgot-password" >Quên mật khẩu?</Link>}
+              {errorStatus === '' && <Link to={'/forgot-password'} className="forgot-password" >Quên mật khẩu?</Link>}
               {errorStatus && <RenderError errorStatus={errorStatus} />}
               <br />
               <br />
               <Button htmlType="submit" className="">
                 {formatMessage('login.button.account')}
               </Button>
-              {errorStatus !== '' && <Link to={"/forgot-password"} className="forgot-password" style={{ textAlign: "center" }}>Quên mật khẩu?</Link>}
+              {errorStatus !== '' && <Link to={'/forgot-password'} className="forgot-password" style={{ textAlign: 'center' }}>Quên mật khẩu?</Link>}
             </Form>
           </div>
         </div>
@@ -107,14 +104,14 @@ const Login: React.FC = () => {
           <p className='thumnail-login-content'>Hệ thống <br />
             <strong style={{
               fontSize: '36px',
-              fontWeight: '900'
+              fontWeight: '900',
             }}
             >QUẢN LÍ XẾP HÀNG</strong>
           </p>
         </div>
       </div>
     </>
-  )
-}
+  );
+};
 
-export default Login
+export default Login;

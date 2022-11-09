@@ -12,7 +12,7 @@ import { routerViewSetting } from '@view/SettingSystem/router';
 import { IRouter } from './interface';
 
 export const privatePage: IRouter[] = [routerViewRoot, routerHomepage, routerViewProfile, routerViewDevice,
-    routerViewReport, routerViewProvideNumber, routerViewService, routerViewSetting
+  routerViewReport, routerViewProvideNumber, routerViewService, routerViewSetting,
 ];
 
 export const publicPage: IRouter[] = [routerLogin, routerForgotPassword];

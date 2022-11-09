@@ -1,6 +1,6 @@
 import { Button, Form, Input } from 'antd';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 import { useSingleAsync } from '@hook/useAsync';
 import { useAltaIntl } from '@hook/useTranslate';
@@ -17,7 +17,7 @@ const UpdatePasswordForm: React.FC<IUpdatePasswordForm> = props => {
   const [errorStatus, setErrorStatus] = useState('');
   const onSubmitResetPassword = values => {
     resetPasswordCall?.execute(values, props.recoveryToken).then(() => {
-      history.push('/login');
+      history('/login');
     });
   };
 

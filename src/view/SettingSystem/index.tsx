@@ -1,9 +1,13 @@
-import React from 'react'
+import MainTitleComponent from '@shared/components/MainTitleComponent';
+import React from 'react';
+import { routerViewSetting } from './router';
 
 const SettingSystem = () => {
-    return (
-        <div>SettingSystem</div>
-    )
-}
+  return (
+    <div>
+      <MainTitleComponent breadcrumbs={routerViewSetting} />
+    </div>
+  );
+};
 
-export default SettingSystem
+export default SettingSystem;

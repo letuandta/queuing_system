@@ -3,11 +3,10 @@ import './style.scss';
 import { Button, Col, Form, Input, Row } from 'antd';
 import React, { useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 import store from '@core/store/redux';
 import { useSingleAsync } from '@hook/useAsync';
-import HeaderComponent from '@layout/Header';
 import RightMenu, { IArrayAction } from '@layout/RightMenu';
 import { RootState } from '@modules';
 import authenticationPresenter from '@modules/authentication/presenter';
@@ -60,7 +59,7 @@ const UserProfile = () => {
           content: formatMessage('common.logout.content'),
           handleOk: () => {
             // eslint-disable-next-line @typescript-eslint/no-unused-expressions
-            store.dispatch(removeProfile()), history.push('/login');
+            store.dispatch(removeProfile()), history('/login');
           },
         });
       },

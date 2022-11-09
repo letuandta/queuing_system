@@ -94,11 +94,12 @@ export default {
   'common.search': 'Tìm kiếm',
   'common.profile': 'Thông tin cá nhân',
   'common.homepage': 'Dashboard',
+  'common.homepage.title': 'Biểu đồ cấp số',
   'common.device': 'Thiết bị',
   'common.service': 'Dịch vụ',
   'common.provide.number': 'Cấp số',
   'common.setting.system': 'Cài đặt hệ thống',
   'common.manage.role': 'Quản lý vai trò',
   'common.manage.account': 'Quản lý tài khoảng',
-  'common.log.user': 'Nhật kí người dùng'
+  'common.log.user': 'Nhật kí người dùng',
 };

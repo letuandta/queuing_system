@@ -103,7 +103,7 @@ const Homepage = () => {
             // call Api Delete here
             handleRefresh();
           },
-          handleCancel: () => {},
+          handleCancel: () => { },
         });
       },
     },

@@ -279,7 +279,7 @@ a:hover {
 }
 
 .ant-row {
-  row-gap: 1rem !important;
+  row-gap: 1.5rem !important;
 }
 
 .pointer {
@@ -289,4 +289,8 @@ a:hover {
 .tox .tox-notification--warn,
 .tox .tox-notification--warning {
   display: none;
+}
+
+.default-title{
+  color: $orange-alta !important;
 }

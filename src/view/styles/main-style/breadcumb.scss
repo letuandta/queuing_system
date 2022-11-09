@@ -7,15 +7,14 @@
 .breadcrumb__box {
   display: flex;
   align-items: center;
-  margin: 1rem 0;
-  font-weight: $font-weight-medium;
-  font-size: $fs-3;
+  margin: 1rem 0 2.5rem 0;
+  font-weight: 600;
+  font-size: $fs-4;
   line-height: 2.7rem;
   color: $color-black;
 
   a {
     opacity: 0.8;
-    font-weight: $font-weight-medium;
     color: $color-black;
   }
 
@@ -23,14 +22,17 @@
     padding-left: 0;
   }
 
+
   .breadcrumb__last {
     a {
       opacity: 1;
-      color: $color-black;
+      color: $orange_alta_500;
     }
   }
 
   .breadcrumb__icon {
+    padding: 1rem;
+
     .anticon svg {
       color: $color-black;
       font-size: 2.1rem;

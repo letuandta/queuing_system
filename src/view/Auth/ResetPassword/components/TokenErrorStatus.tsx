@@ -1,5 +1,5 @@
 import React from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 import { useAltaIntl } from '@shared/hook/useTranslate';
 
@@ -12,7 +12,7 @@ const TokenErrorStatus = () => {
         <h3 className="main-title">{formatMessage('reset.password.title.error')}</h3>
         <p>{formatMessage('reset.password.notification')}</p>
         <div className="button-center__box">
-          <button onClick={() => history.push('/login')} className="normal-button">
+          <button onClick={() => history('/login')} className="normal-button">
             {formatMessage('common.button.return')}
           </button>
         </div>

@@ -27,13 +27,17 @@ module.exports = {
       {
         test: /\.(ts|tsx)$/,
         loader: 'babel-loader',
-        exclude: ['/node_modules/', '/build/', '/blueprint-templates', '/dist'],
+        exclude: ['/node_modules/', '/build/', '/blueprint-templates', '/dist', '/node_modules/@antv/'],
       },
       {
         /*bien dich soure map sang ts*/
         enforce: 'pre',
-        test: /\.js?$/,
+        test: /\.(js|jsx)?$/,
         loader: 'source-map-loader',
+        exclude: [
+          /node_modules\/@antv/,
+          /node_modules\/@ant-design\/flowchart/
+        ]
       },
       {
         test: /\.(png|svg|jpg|jpeg|gif)$/i,

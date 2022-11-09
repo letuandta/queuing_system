@@ -2,6 +2,8 @@ import React, { memo } from 'react';
 import BreadcrumbComponent from './BreadcumbComponent';
 import TitleComponent from './TitleComponent/index';
 import { IRouter } from '@routers/interface';
+import { TagTile } from '../TagTitle';
+import { useAltaIntl } from '@shared/hook/useTranslate';
 
 export interface IBreadcrumbs {
   name: string;
@@ -11,7 +13,7 @@ interface Props {
   classTitle?: string;
   classBreadcrumbs?: string;
   title?: any;
-  breadcrumbs?: IRouter | Array<IRouter>;
+  breadcrumbs?: IRouter | Array<IRouter> | undefined;
 }
 
 const MainTitleComponent = ({
@@ -21,8 +23,11 @@ const MainTitleComponent = ({
   breadcrumbs,
 }: Props) => {
   let titleIn = '';
+  
+  const { formatMessage } = useAltaIntl();
   if (title) {
     titleIn = title;
+    TagTile(formatMessage(title));
   } else {
     if (Array.isArray(breadcrumbs)) {
       const index = breadcrumbs.length - 1;
@@ -38,7 +43,7 @@ const MainTitleComponent = ({
       ) : (
         ''
       )}
-      <TitleComponent title={titleIn} className={classTitle} />
+      <TitleComponent title={titleIn} className={classTitle} level={3}/>
     </div>
   );
 };

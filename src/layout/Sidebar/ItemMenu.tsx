@@ -1,8 +1,7 @@
 import { Dropdown, Menu } from 'antd';
 import React, { memo, useMemo } from 'react';
 import { FormattedMessage } from 'react-intl';
-import { matchPath, useLocation, useNavigate } from 'react-router';
-import { Link } from 'react-router-dom';
+import { matchPath, useLocation, useNavigate, Link } from 'react-router-dom';
 
 import { UilEllipsisV } from '@iconscout/react-unicons';
 import { IRouter } from '@routers/interface';
@@ -92,7 +91,7 @@ const Item: React.FC<IMenu> = (props: IMenu) => {
     );
   }
 
-  console.log(item)
+  console.log(item);
 
   return (
     <div className={`menu--component--item ${active}`}>

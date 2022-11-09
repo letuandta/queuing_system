@@ -2,7 +2,7 @@ import '../styles.scss';
 
 import { Button, Form, Input } from 'antd';
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 import { useSingleAsync } from '@hook/useAsync';
 import authenticationPresenter from '@modules/authentication/presenter';

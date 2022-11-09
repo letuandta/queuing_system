@@ -1,6 +1,6 @@
 import { Button } from 'antd';
 import React from 'react';
-import { useNavigate } from 'react-router';
+import { useNavigate } from 'react-router-dom';
 
 import { useAltaIntl } from '@shared/hook/useTranslate';
 

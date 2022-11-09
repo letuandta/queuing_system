@@ -1,9 +1,11 @@
-import React from 'react'
+import MainTitleComponent from '@shared/components/MainTitleComponent';
+import React from 'react';
+import { routerViewDevice } from './router';
 
 const Device = () => {
-    return (
-        <div>Device</div>
-    )
-}
+  return (
+    <MainTitleComponent breadcrumbs={routerViewDevice} />
+  );
+};
 
-export default Device
+export default Device;

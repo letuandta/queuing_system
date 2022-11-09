@@ -1,9 +1,11 @@
-import React from 'react'
+import MainTitleComponent from '@shared/components/MainTitleComponent';
+import React from 'react';
+import { routerViewReport } from './router';
 
 const Report = () => {
-    return (
-        <div>Report</div>
-    )
-}
+  return (
+    <MainTitleComponent breadcrumbs={routerViewReport} />
+  );
+};
 
-export default Report
+export default Report;

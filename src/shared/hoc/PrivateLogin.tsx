@@ -1,5 +1,5 @@
 import React from 'react';
-import { withRouter } from 'react-router';
+import { withRouter } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { TokenSelector } from '@modules/authentication/profileStore';
 

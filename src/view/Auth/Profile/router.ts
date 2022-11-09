@@ -4,5 +4,5 @@ export const routerViewProfile: IRouter = {
   path: '/profile',
   name: 'common.profile',
   loader: import('./index'),
-  exact: true
+  exact: true,
 };

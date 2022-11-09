@@ -1,5 +1,5 @@
 import React, { memo, useEffect, useState } from 'react';
-import { useLocation, useNavigate } from 'react-router';
+import { useLocation, useNavigate } from 'react-router-dom';
 
 import { UilAngleRight } from '@iconscout/react-unicons';
 import { IRouter } from '@routers/interface';
@@ -8,6 +8,7 @@ import { logo } from '@shared/assets/svg';
 import CheckPermission from '@shared/hoc/CheckPermission';
 
 import MenuItem from './ItemMenu';
+import LogoutButton from './logoutButton';
 
 interface IRenderMenuProps {
   listNav: Array<IRouter>;
@@ -73,6 +74,7 @@ const SiderComponent: React.FC<{
         <div className="menu">
           <RenderMenu listNav={privatePage} location={location.pathname} />
         </div>
+        <LogoutButton/>
       </div>
     </div>
   );

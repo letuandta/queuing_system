@@ -1,24 +1,24 @@
 import '@shared/assets/css/bootstrap.min.css';
 import 'antd/dist/antd.css';
 import '@styles/styles.scss';
+// // eslint-disable-next-line import/no-unresolved
+// import '@ant - design/flowchart/dist/index.css';
 
 import { ConfigProvider } from 'antd';
 import lodash from 'lodash';
 import React, { memo, Suspense, useEffect, useMemo } from 'react';
 import { IntlProvider } from 'react-intl';
-import { useDispatch, useSelector } from 'react-redux';
-import { useNavigate } from 'react-router';
+import { useSelector } from 'react-redux';
+import { useNavigate } from 'react-router-dom';
 
 import locale from '@locale/index';
-import { removeProfile, setToken, TokenSelector } from '@modules/authentication/profileStore';
+import { TokenSelector } from '@modules/authentication/profileStore';
 import { LanguageSelector } from '@modules/setting/settingStore';
 import PrivatePage from '@routers/component/PrivatePage';
 
 import PublicPage from '../routers/component/PublicPage';
-import { FirebaseConfig } from 'src/firebase/configs';
 
 
-const auth = FirebaseConfig.getInstance().auth;
 
 const MainView = memo(({ statusLogin }: { statusLogin: boolean }) => {
   return (
@@ -41,7 +41,6 @@ const App: React.FC = () => {
   const { token } = useSelector(TokenSelector);
   const { language } = useSelector(LanguageSelector);
   const history = useNavigate();
-  const dispatch = useDispatch();
   const memoLangData = useMemo(() => {
     return locale[language];
   }, [language]);

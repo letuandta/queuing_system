@@ -18,6 +18,7 @@ $padding-inside: 1rem;
   overflow: hidden;
   background-color: $color-sidebar;
   border-radius: 1.6rem;
+  position: relative;
 
   &>.w-100 {
     background-color: $color-sidebar;
@@ -25,6 +26,25 @@ $padding-inside: 1rem;
     border-radius: 1.6rem;
     position: fixed;
     top: 0;
+  }
+
+  .ant-btn.ant-btn-default{
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    transform: translate(-50%, -3rem);
+    border: none;
+    background-color: $orange_alta_50 !important;
+    color: $orange_alta_500 !important;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg{
+      stroke: $orange_alta_500;
+      stroke-width: 3px;
+      margin-right: 1rem;
+    }
   }
 
   .logo {
@@ -85,6 +105,7 @@ $padding-inside: 1rem;
 
       .item-label {
         padding: 1rem;
+        padding-left: 2rem;
         display: flex;
         flex-direction: row;
         position: relative;
@@ -100,7 +121,30 @@ $padding-inside: 1rem;
         }
 
         &:hover {
-          opacity: 0.7;
+          background-color: $orange_alta_50;
+
+          .item__nav {
+            color: $orange_alta_500;
+          }
+
+          .item-hover__icon {
+            svg {
+              stroke: $orange_alta_500;
+            }
+
+            .icon-has-fill-no-stroke svg {
+              fill: $orange_alta_500;
+            }
+
+            .icon-has-fill-has-stroke svg {
+              .has-fill-no-stroke {
+                stroke: none;
+                fill: $orange_alta_500;
+              }
+            }
+          }
+
+
         }
 
         .item__nav {
@@ -127,6 +171,18 @@ $padding-inside: 1rem;
             width: 2.6rem;
             height: 2.6rem;
             stroke: $color-text-item-sidebar;
+          }
+
+          .icon-has-fill-no-stroke svg {
+            fill: $color-text-item-sidebar;
+            stroke: none;
+          }
+
+          .icon-has-fill-has-stroke svg g {
+            .has-fill-no-stroke {
+              stroke: none;
+              fill: $color-text-item-sidebar;
+            }
           }
         }
 
@@ -182,7 +238,7 @@ $padding-inside: 1rem;
 }
 
 .big {
-  width: 15vw;
+  width: 17vw;
   cursor: initial;
 
   .mask {

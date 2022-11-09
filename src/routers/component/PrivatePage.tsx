@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { Routes } from 'react-router';
+import { Routes } from 'react-router-dom';
 
 import config from '@config/index';
 import DefaultLayout from '@layout/index';

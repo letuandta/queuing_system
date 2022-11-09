@@ -50,7 +50,7 @@ export interface ILoginDTO {
 const login = (payload: ILoginDTO) => {
   return fbRepositorires.execute({
     asyncFunction: signInWithEmailAndPassword,
-    payload: payload
+    payload: payload,
   });
   // return httpRepository.execute({
   //   path: '/api/Users/Login',
@@ -62,8 +62,8 @@ const login = (payload: ILoginDTO) => {
 
 const logout = () => {
   return fbRepositorires.execute({
-    asyncFunction: signOut
-  })
+    asyncFunction: signOut,
+  });
 };
 
 
@@ -79,7 +79,7 @@ const resetPass = (payload: any, otp: string) => {
 };
 
 const getProfile = () => {
-  return {}
+  return {};
 };
 
 const updateProfile = (payload: any) => {

@@ -17,4 +17,5 @@ export default {
   'auth.password.confirm': 'Xác nhận mật khẩu',
   'auth.password.not.match': 'Hai mật khẩu bạn đã nhập không khớp!',
   'auth.password.new': 'Mật khẩu mới',
+  'auth.logout': 'Đăng xuất',
 };

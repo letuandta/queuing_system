@@ -1,7 +1,7 @@
 import '../styles.scss';
 
 import React, { useEffect, useState } from 'react';
-import { useNavigate, useParams } from 'react-router';
+import { useNavigate, useParams } from 'react-router-dom';
 
 import authenticationPresenter from '@modules/authentication/presenter';
 import { useSingleAsync } from '@shared/hook/useAsync';
