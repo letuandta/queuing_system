@@ -6,6 +6,9 @@ import MainTitleComponent from '@shared/components/MainTitleComponent';
 import { routerHomepage } from './router';
 import { Area } from '@ant-design/plots';
 import TitleComponent from '@shared/components/MainTitleComponent/TitleComponent';
+import { numberOrder } from '@assets/svg'
+import { ReactSVG } from 'react-svg';
+import { ArrowUpOutlined } from '@ant-design/icons';
 
 const Home: React.FC = () => {
   // const { logout } = authenticationPresenter;
@@ -39,13 +42,27 @@ const Home: React.FC = () => {
     smooth: true,
   };
 
- 
+
   return (
     <div className="homepage">
       <div className='homepage-left'>
         <MainTitleComponent breadcrumbs={routerHomepage} title={'common.homepage.title'} classTitle='default-title' />
         <Row align="middle" gutter={16}>
-          <Col span={6}><div></div></Col>
+          <Col span={6}>
+            <div>
+              <div style={{ display: 'flex', padding: '1rem' }}>
+                <ReactSVG src={numberOrder} />
+                <p style={{ fontSize: '2rem', flex: 0.7, marginLeft: '2rem', fontWeight: "600" }}>Số thứ tự đã cấp</p>
+              </div>
+              <div style={{ display: 'flex', paddingLeft: '1rem', alignItems: "center" }}>
+                <p style={{ fontSize: '4rem', flex: 1, fontWeight: "700" , marginBottom: '0'}}>4221</p>
+                <span style={{display: 'flex', padding: '1rem', backgroundColor: "#FFF2E7", borderRadius: "25% / 50%"}}>
+                <ArrowUpOutlined />
+                <p style={{marginBottom: '0'}}>32,44%</p>
+                </span>
+              </div>
+            </div>
+          </Col>
           <Col span={6}><div></div></Col>
           <Col span={6}><div></div></Col>
           <Col span={6}><div></div></Col>

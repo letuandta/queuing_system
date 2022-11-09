@@ -35,10 +35,10 @@ const AvatarUser: React.FC<IAvatar> = props => {
       <Form.Item name="avatar" hidden={true}>
         <Input hidden={true} />
       </Form.Item>
-      {disabled !== true && (
+      {disabled == true && (
         <div className="button-icon-upload">
           <label htmlFor="input-media">
-            <CameraOutlined hidden={disabled} />
+            <CameraOutlined  />
           </label>
           <input
             hidden
@@ -55,7 +55,7 @@ const AvatarUser: React.FC<IAvatar> = props => {
         </div>
       )}
       <div className="account-name">
-        <p>{user?.userFullName}</p>
+        <p>{user?.userFullName ? user?.userFullName :'Le Tuan Dat'}</p>
       </div>
     </div>
   );
