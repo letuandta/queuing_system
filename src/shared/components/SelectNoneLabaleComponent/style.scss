@@ -1,0 +1,24 @@
+.select-none-lable {
+    display: inline-block;
+    margin: 1rem;
+
+    .ant-select {
+        .ant-select-selector {
+            border-radius: 1rem !important;
+
+            .ant-select-selection-item {
+                font-size: 2rem;
+            }
+        }
+
+        .ant-select-arrow {
+            font-size: 2rem;
+
+            svg {
+                fill: orange
+            }
+        }
+    }
+
+
+}

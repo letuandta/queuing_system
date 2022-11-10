@@ -1,4 +1,4 @@
-import { Row, Col } from 'antd';
+import { Row, Col, Progress, Space } from 'antd';
 import React from 'react';
 // import authenticationPresenter from '@modules/authentication/presenter';
 // import { useSingleAsync } from '@hook/useAsync';
@@ -6,9 +6,14 @@ import MainTitleComponent from '@shared/components/MainTitleComponent';
 import { routerHomepage } from './router';
 import { Area } from '@ant-design/plots';
 import TitleComponent from '@shared/components/MainTitleComponent/TitleComponent';
-import { numberOrder } from '@assets/svg'
+import { device, numberOrder, numberOrdered, numberOrderSkip, numberOrderWaiting } from '@assets/svg'
 import { ReactSVG } from 'react-svg';
 import { ArrowUpOutlined } from '@ant-design/icons';
+import StatsOrder from './component/statsOrder';
+import moment from 'moment';
+import SelectNoneLable from '@shared/components/SelectNoneLabaleComponent';
+import Zstack from '@shared/components/ZstackComponent/Zstack';
+import Badge from '@shared/components/Badge';
 
 const Home: React.FC = () => {
   // const { logout } = authenticationPresenter;
@@ -39,7 +44,11 @@ const Home: React.FC = () => {
     xAxis: {
       range: [0, 1],
     },
+    height: 350,
     smooth: true,
+    areaStyle: {
+      fill: 'l(270) 0:#ffffff 0.5:#7ec2f3 1:#1890ff',
+    }
   };
 
 
@@ -50,24 +59,45 @@ const Home: React.FC = () => {
         <Row align="middle" gutter={16}>
           <Col span={6}>
             <div>
-              <div style={{ display: 'flex', padding: '1rem' }}>
-                <ReactSVG src={numberOrder} />
-                <p style={{ fontSize: '2rem', flex: 0.7, marginLeft: '2rem', fontWeight: "600" }}>Số thứ tự đã cấp</p>
-              </div>
-              <div style={{ display: 'flex', paddingLeft: '1rem', alignItems: "center" }}>
-                <p style={{ fontSize: '4rem', flex: 1, fontWeight: "700" , marginBottom: '0'}}>4221</p>
-                <span style={{display: 'flex', padding: '1rem', backgroundColor: "#FFF2E7", borderRadius: "25% / 50%"}}>
-                <ArrowUpOutlined />
-                <p style={{marginBottom: '0'}}>32,44%</p>
-                </span>
-              </div>
+              <StatsOrder icon={numberOrder} description='Số thứ tự đã cấp' quantity={4221} percent={32.44} status="increase" />
             </div>
           </Col>
-          <Col span={6}><div></div></Col>
-          <Col span={6}><div></div></Col>
-          <Col span={6}><div></div></Col>
+          <Col span={6}>
+            <div>
+              <StatsOrder icon={numberOrdered} description='Số thứ tự đã sử dụng' quantity={3721} percent={32.44} status="decrease" />
+            </div>
+          </Col>
+          <Col span={6}>
+            <div>
+              <StatsOrder icon={numberOrderWaiting} description='Số thứ tự đang chờ' quantity={72} percent={32.44} status="increase" />
+            </div>
+          </Col>
+          <Col span={6}>
+            <div>
+              <StatsOrder icon={numberOrderSkip} description='Số thứ tự đã bỏ qua' quantity={43} percent={32.44} status="decrease" />
+            </div>
+          </Col>
         </Row>
         <div className='month-stat-chart'>
+          <div style={{ height: "12rem", display: 'flex', justifyContent: "space-between", alignItems: "center" }}>
+            <div>
+              <TitleComponent title={'Bảng thống kê theo tháng'} className={'default-title chart-title'} level={3} />
+              Năm {moment(new Date).year()}
+            </div>
+            <div>
+              <strong>Xem Theo</strong>
+              <SelectNoneLable defaultvalue={'Tháng'} option={[{
+                value: 'Ngày',
+                label: 'Ngày'
+              }, {
+                value: 'Tháng',
+                label: 'Tháng'
+              }, {
+                value: 'Năm',
+                label: 'Năm'
+              }]} />
+            </div>
+          </div>
           <Area {...config} />
         </div>
       </div>
@@ -76,7 +106,30 @@ const Home: React.FC = () => {
         <div className='homepage-right-content'>
           <TitleComponent title={'Tổng quan'} className={'default-title'} level={3} />
           <Row>
-            <Col span={24}><div></div></Col>
+            <Col span={24}>
+              <div style={{ display: 'flex', justifyContent: 'space-between', padding: "1rem 2rem", alignItems: 'center' }}>
+                <div style={{ display: 'flex', alignItems: "center" }}>
+                  <Zstack>
+                    <Progress width={80} type="circle" percent={75} />
+                    <Progress width={65} type="circle" percent={55} showInfo={false} />
+                    <Progress width={50} type="circle" percent={25} showInfo={false} />
+                  </Zstack>
+                  <div style={{ marginLeft: "1rem" }}>
+                    <p style={{ fontSize: "4rem", marginBottom: "0", fontWeight: '700' }}>4221</p>
+                    <span style={{ display: "flex" }}>
+                      Icon
+                      <p>Thiết bị</p>
+                    </span>
+                  </div>
+                </div>
+                <div>
+                  <Space direction="vertical">
+                    <Badge status={4} id="#f50" />
+                    <Badge status={3} id="#f50" />
+                  </Space>
+                </div>
+              </div>
+            </Col>
             <Col span={24}><div></div></Col>
             <Col span={24}><div></div></Col>
           </Row>

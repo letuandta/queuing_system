@@ -7,3 +7,6 @@ export const logout = require('./logout.svg');
 export const provideNumber = require('./provide-number.svg');
 export const bell = require('./bell.svg');
 export const numberOrder = require('./numberOrde.svg');
+export const numberOrdered = require('./numberOrdered.svg');
+export const numberOrderWaiting = require('./numberOrderWaiting.svg');
+export const numberOrderSkip = require('./numberOrderSkip.svg')
