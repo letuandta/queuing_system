@@ -9,7 +9,7 @@ $prefix: "homepage";
 
     .#{$prefix}-left {
         padding: 0 2rem;
-        width: 70%;
+        width: 69%;
 
         .ant-col>div {
             height: 16rem !important;
@@ -33,12 +33,13 @@ $prefix: "homepage";
 
 
     .homepage-right {
-        width: 30%;
+        width: 31%;
         background-color: white;
         border-radius: 1rem;
+        min-height: 835px;
 
         .homepage-right-content {
-            padding: 2.5rem;
+            padding: 2rem;
         }
 
 
@@ -128,6 +129,66 @@ $prefix: "homepage";
             font-size: 1.2rem;
             margin-bottom: 0;
             margin-left: 1rem;
+        }
+    }
+}
+
+.overview-data {
+    display: flex;
+    justify-content: space-between;
+    padding: 1rem 2rem;
+    align-items: center;
+
+    .overview-data-left {
+        display: flex;
+        align-items: center;
+
+        .zstack-description {
+            margin-left: 1rem;
+
+            p.data-quantity {
+                font-size: 4rem;
+                margin-bottom: 0;
+                font-weight: 700;
+            }
+
+            span {
+                display: flex;
+                align-items: center;
+                font-weight: 600;
+
+                p {
+                    margin-left: 0.5rem;
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+
+    .overview-data-right {
+
+
+        .badge-data {
+            display: flex;
+            align-items: baseline;
+            justify-content: space-between;
+
+
+            p {
+                font-size: 2rem;
+                font-weight: 700;
+                margin-bottom: 0;
+                margin-left: 1rem;
+            }
+
+            .ant-badge .ant-badge-status-text {
+                font-size: 1.3rem !important;
+            }
+
+            .ant-badge .ant-badge-status-dot {
+                width: 0.6rem;
+                height: 0.6rem;
+            }
         }
     }
 }

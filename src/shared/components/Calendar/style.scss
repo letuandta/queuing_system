@@ -1,0 +1,67 @@
+.site-calendar-customize-header-wrapper {
+    box-shadow: 2px 2px 15px rgba(70, 64, 67, 0.1);
+
+
+    .header-calendar {
+
+
+        .ant-row {
+
+            .ant-col {
+                color: #FF7506 !important;
+                font-weight: 700 !important;
+                font-size: 2rem;
+
+                .ant-btn.next-month-button {
+                    border: none;
+                    min-width: 0;
+                    background-color: none !important;
+                    background: none !important;
+                    min-height: 0;
+                    box-shadow: none;
+                    color: #FF7506 !important;
+                    font-weight: 700 !important;
+                    font-size: 2rem;
+                }
+            }
+        }
+    }
+
+    .ant-picker-calendar {
+
+
+        .ant-picker-panel {
+            border-top: 0 !important;
+
+
+            .ant-picker-date-panel .ant-picker-body .ant-picker-content {
+
+                thead {
+                    background: none !important;
+
+                    tr {
+                        background: none !important;
+
+                        th {
+                            color: #FF7506;
+                        }
+                    }
+                }
+
+                tbody {
+                    .ant-picker-cell-selected .ant-picker-cell-inner {
+                        background-color: #FF7506 !important;
+                        border-radius: 0.8rem;
+
+                        &::before {
+                            border: none !important;
+                        }
+                    }
+                }
+
+            }
+
+
+        }
+    }
+}

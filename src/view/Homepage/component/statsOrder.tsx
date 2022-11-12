@@ -42,4 +42,4 @@ const StatsOrder = (props: StatsOrderProps) => {
     )
 }
 
-export default StatsOrder
+export default React.memo(StatsOrder)

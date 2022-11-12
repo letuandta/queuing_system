@@ -1,4 +1,4 @@
-.ant-picker-input > input {
+.ant-picker-input>input {
   font-size: $fs-2;
 }
 
@@ -41,7 +41,7 @@
   line-height: 4rem;
 }
 
-.ant-picker-header > button {
+.ant-picker-header>button {
   font-size: $fs-2;
 }
 
@@ -55,9 +55,9 @@
 }
 
 .ant-picker-cell .ant-picker-cell-inner {
-  height: 2.4rem;
-  line-height: 2.4rem;
-  min-width: 2.4rem;
+  height: 3.4rem;
+  line-height: 3.4rem;
+  min-width: 3.4rem;
 }
 
 .ant-picker-range .ant-picker-clear {
@@ -68,7 +68,7 @@
   width: 5.8rem;
 }
 
-.ant-picker-time-panel-column > li.ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner {
+.ant-picker-time-panel-column>li.ant-picker-time-panel-cell .ant-picker-time-panel-cell-inner {
   height: 2.8rem;
   line-height: 2.8rem;
   padding: 0 0 0 1.4rem;
@@ -91,7 +91,7 @@
   line-height: 3.4rem;
 }
 
-.ant-picker-large .ant-picker-input > input {
+.ant-picker-large .ant-picker-input>input {
   font-size: $fs-1;
 }
 
@@ -146,6 +146,7 @@
 .ant-picker-time-panel {
   display: none;
 }
+
 .ant-picker {
   border: 1px solid #ffffff;
   background-color: #ffffff;

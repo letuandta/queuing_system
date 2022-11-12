@@ -14,6 +14,8 @@ import moment from 'moment';
 import SelectNoneLable from '@shared/components/SelectNoneLabaleComponent';
 import Zstack from '@shared/components/ZstackComponent/Zstack';
 import Badge from '@shared/components/Badge';
+import Overview from './component/overview';
+import Calendar from '@shared/components/Calendar';
 
 const Home: React.FC = () => {
   // const { logout } = authenticationPresenter;
@@ -107,34 +109,59 @@ const Home: React.FC = () => {
           <TitleComponent title={'Tổng quan'} className={'default-title'} level={3} />
           <Row>
             <Col span={24}>
-              <div style={{ display: 'flex', justifyContent: 'space-between', padding: "1rem 2rem", alignItems: 'center' }}>
-                <div style={{ display: 'flex', alignItems: "center" }}>
-                  <Zstack>
-                    <Progress width={80} type="circle" percent={75} />
-                    <Progress width={65} type="circle" percent={55} showInfo={false} />
-                    <Progress width={50} type="circle" percent={25} showInfo={false} />
-                  </Zstack>
-                  <div style={{ marginLeft: "1rem" }}>
-                    <p style={{ fontSize: "4rem", marginBottom: "0", fontWeight: '700' }}>4221</p>
-                    <span style={{ display: "flex" }}>
-                      Icon
-                      <p>Thiết bị</p>
-                    </span>
-                  </div>
-                </div>
-                <div>
-                  <Space direction="vertical">
-                    <Badge status={4} id="#f50" />
-                    <Badge status={3} id="#f50" />
-                  </Space>
-                </div>
-              </div>
+              <Overview
+                color='#FF7506'
+                progress={{ percents: [90, 10] }}
+                badges={[{
+                  title: 'Đang hoạt động',
+                  quantity: 3799
+                }, {
+                  title: 'Ngưng hoạt động',
+                  quantity: 422
+                }]}
+                icon={<ReactSVG src={device} />}
+                title='Thiết bị'
+                quantity={4221}
+              />
             </Col>
-            <Col span={24}><div></div></Col>
-            <Col span={24}><div></div></Col>
+            <Col span={24}>
+              <Overview
+                color='#4277FF'
+                progress={{ percents: [76, 23] }}
+                badges={[{
+                  title: 'Đang hoạt động',
+                  quantity: 210
+                }, {
+                  title: 'Ngưng hoạt động',
+                  quantity: 66
+                }]}
+                icon={<ReactSVG src={device} />}
+                title='Thiết bị'
+                quantity={276}
+              />
+            </Col>
+            <Col span={24}>
+              <Overview
+                color='#35C75A'
+                progress={{ percents: [86, 10, 5] }}
+                badges={[{
+                  title: 'Đang chờ',
+                  quantity: 3722
+                }, {
+                  title: 'Đã sử dụng',
+                  quantity: 486
+                }, {
+                  title: 'Bỏ qua',
+                  quantity: 22
+                }]}
+                icon={<ReactSVG src={device} />}
+                title='Thiết bị'
+                quantity={4221}
+              />
+            </Col>
           </Row>
           <div className='calander-custom'>
-
+            <Calendar />
           </div>
         </div>
       </div>

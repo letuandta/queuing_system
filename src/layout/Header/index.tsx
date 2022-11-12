@@ -7,6 +7,8 @@ import UserEntity from '@modules/user/entity';
 import { Selector } from '@reduxjs/toolkit';
 import { imgAvatar } from '@shared/assets/images';
 import ChangeLanguage from '@shared/components/ChangeLanguage';
+import { ReactSVG } from 'react-svg';
+import { bellFullFill } from '@assets/svg';
 
 interface IHeaderComponent {
   profile?: UserEntity;
@@ -27,6 +29,9 @@ const HeaderComponent = () => {
       <div className="header-component">
         <div className="header-component__search">
           <ChangeLanguage />
+        </div>
+        <div style={{ stroke: '#FFAC6A', fill: '#FFAC6A' }}>
+          <ReactSVG src={bellFullFill} />
         </div>
         <div className="header-component__dropdown">
           <div className="dropdown__profile__img">

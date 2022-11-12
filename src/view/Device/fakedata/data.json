@@ -1,0 +1,283 @@
+[
+    {
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 1
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 1,
+        "activeStatus": 0
+    },{
+        "deviceId": "KIO_01",
+        "deviceName": "Kiosk",
+        "IPAddress": "128.172.308",
+        "deviceType": "Kiosk",
+        "signInName": "LinhKyo011",
+        "password": "CMS",
+        "serviceUse": "Khám tim mạch, khám sản - phụ khoa, khám răng hàm mặt, khám tai mũi họng, khám hô hấp, khám tổng quát",
+        "connectStatus": 0,
+        "activeStatus": 0
+    }
+]
