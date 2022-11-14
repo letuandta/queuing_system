@@ -278,7 +278,7 @@ const TableComponent: React.FC<IBEPaginationTable> = <T extends object>(
         </div>
       )}
       <Table<T>
-        rowSelection={rowSelection}
+        // rowSelection={rowSelection}
         onRow={onRowFunction}
         {...props}
         className="main-table"
@@ -288,9 +288,9 @@ const TableComponent: React.FC<IBEPaginationTable> = <T extends object>(
         onChange={handleChangePage}
         columns={thisColumns}
       />
-      {props.pagination !== false && (
+      {/* {props.pagination !== false && (
         <Pagination pagination={state.pagination} onChange={handleChangePage} />
-      )}
+      )} */}
     </div>
   );
 };

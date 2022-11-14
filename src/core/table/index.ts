@@ -7,7 +7,7 @@ export class OptionEntity {
 
   filterDate?: Date;
 
-  filter?: { [propName: string]: string | number | undefined };
+  filter?: { field: string | undefined, value: string | number | undefined };
 
   sorter?: SorterResult<any>;
 

@@ -22,6 +22,7 @@ import { useAltaIntl } from '@shared/hook/useTranslate';
 import ModalComponents from './component/MainModal/ModalHomepage';
 import { IModal } from './interface';
 import { routerHomepage } from './router';
+import devicePresenter from '@modules/device/presenter';
 
 const dataTable = require('./data.json');
 
@@ -41,13 +42,13 @@ const Homepage = () => {
   const idChooses = 'id'; //get your id here. Ex: accountId, userId,...
   const columns: ColumnsType = [
     {
-      dataIndex: 'tagName',
+      dataIndex: 'deviceName',
     },
     {
-      dataIndex: 'lastUpdate',
+      dataIndex: 'deviceType',
     },
     {
-      dataIndex: 'group',
+      dataIndex: 'id',
     },
     {
       dataIndex: 'group',
@@ -85,6 +86,7 @@ const Homepage = () => {
     setSelectedRowKeys([]);
   };
 
+
   const arrayAction: IArrayAction[] = [
     {
       iconType: 'add',
@@ -108,9 +110,9 @@ const Homepage = () => {
       },
     },
   ];
-  const dataString: ISelect[] = [{ label: 'common.all', value: undefined }];
+  const dataString: ISelect[] = [{ label: 'common.all', value: undefined }, { label: 'Kiosk', value: "Kiosk" }];
   const arraySelectFilter: ISelectAndLabel[] = [
-    { textLabel: 'Lĩnh vực', dataString },
+    { textLabel: 'Lĩnh vực', dataString, keyLabel: "deviceName" },
     { textLabel: 'Địa bàn quản lý', dataString },
     { textLabel: 'Trạng thái', dataString },
   ];
@@ -125,7 +127,7 @@ const Homepage = () => {
 
   const onChangeSelectStatus = (name: string | undefined) => (status: any) => {
     if (name && status) {
-      setFilterOption((pre: any) => ({ ...pre, [name]: status }));
+      setFilterOption((pre: any) => ({ ...pre, field: name, value: status }));
     }
   };
   return (
@@ -136,9 +138,9 @@ const Homepage = () => {
           <div className="d-flex flex-row ">
             {arraySelectFilter.map(item => (
               <SelectAndLabelComponent
-                onChange={onChangeSelectStatus(item.name)}
+                onChange={onChangeSelectStatus(item.keyLabel)}
                 key={item.name}
-                className="margin-select"
+                className={`margin-select ${item.keyLabel}`}
                 dataString={item.dataString}
                 textLabel={item.textLabel}
               />
@@ -154,9 +156,9 @@ const Homepage = () => {
           </div>
         </div>
         <TableComponent
-          // apiServices={}
+          apiServices={devicePresenter.getDevices}
           defaultOption={filter}
-          translateFirstKey="homepage"
+          translateFirstKey="device"
           rowKey={res => res[idChooses]}
           register={table}
           columns={columns}

@@ -16,6 +16,7 @@ import Zstack from '@shared/components/ZstackComponent/Zstack';
 import Badge from '@shared/components/Badge';
 import Overview from './component/overview';
 import Calendar from '@shared/components/Calendar';
+import "./style.scss"
 
 const Home: React.FC = () => {
   // const { logout } = authenticationPresenter;
