@@ -67,6 +67,8 @@ const AddDevice = () => {
                                     dataString={selectTypeDevice.dataString}
                                     textLabel={selectTypeDevice.textLabel}
                                     className={''}
+                                    require = {true}
+                                    placeholder={'Chon loai thiet bi'}
                                 />
                             </Col>
                         </Row>

@@ -19,6 +19,6 @@ export const routerViewDevice: IRouter = {
 export const routerViewAddDevice: IRouter = {
   path: "/device/add",
   name: "common.device.add",
-  loader: import("./component/addDevice"),
+  loader: import("./component/detailDevice"),
   exact: true
 }
