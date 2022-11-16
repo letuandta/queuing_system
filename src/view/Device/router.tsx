@@ -15,3 +15,10 @@ export const routerViewDevice: IRouter = {
     'hideInNavbar': false,
   },
 };
+
+export const routerViewAddDevice: IRouter = {
+  path: "/device/add",
+  name: "common.device.add",
+  loader: import("./component/addDevice"),
+  exact: true
+}

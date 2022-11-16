@@ -4,7 +4,7 @@ import { routerViewService } from './router';
 
 const Service = () => {
   return (
-    <MainTitleComponent breadcrumbs={routerViewService} />
+    <MainTitleComponent breadcrumbs={routerViewService} title={'common.service.title'} classTitle='default-title' />
   );
 };
 

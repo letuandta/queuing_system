@@ -3,7 +3,6 @@
 }
 
 .card-main-table {
-  background: $color-table-background;
   border-radius: 1.2rem;
   flex: 1;
   display: flex;
@@ -45,6 +44,7 @@
   }
 
   .pagesize {
+
     &--show,
     &--entries {
       color: $color-primary;
@@ -55,6 +55,8 @@
 
 .main-table {
   height: 100%;
+  filter: drop-shadow(2px 2px 8px rgba(232, 239, 244, 0.8));
+
 
   .ant-spin-nested-loading {
     height: 100%;
@@ -67,67 +69,90 @@
     }
   }
 
+
   //table head
-  .ant-table-thead > tr > th {
+  .ant-table-thead>tr>th {
     color: $color-white;
-    background: $color-table-head;
+    background: #FF9138;
     font-weight: $font-weight-medium;
+    line-height: 3rem;
   }
 
   //padding for all table
-  .ant-table-tbody > tr > td,
-  .ant-table-thead > tr > th {
+  .ant-table-tbody>tr>td,
+  .ant-table-thead>tr>th {
     padding: 1.2rem 0.8rem;
   }
 
   //for text color
   .ant-table {
     color: $color-table-text;
+    line-height: 1.2rem;
+    border-radius: 1rem;
+
+  }
+
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>thead>tr>th {
+    border-right: 1px solid #ffc574;
+  }
+
+  .ant-table.ant-table-bordered>.ant-table-container>.ant-table-content>table>tbody>tr>td {
+    border-right: 1px solid #ffc574;
   }
 
   //for even row background color
   tr.ant-table-row:nth-child(even) {
-    background: $color-grey-light-1;
+    background: #FFF2E7;
+  }
+
+  tr.ant-table-row:nth-child(odd) {
+    background: white;
+  }
+
+  .ant-table-container {
+    background: #f5f5f5;
+    border: none !important;
   }
 
   // for border table
-  .ant-table-container table > thead > tr:first-child th:first-child {
-    border-top-left-radius: $border-radius;
+  .ant-table-container table>thead>tr:first-child th:first-child {
+    border-top-left-radius: 1.8rem;
   }
 
-  .ant-table-container table > thead > tr:first-child th:last-child {
-    border-top-right-radius: $border-radius;
+  .ant-table-container table>thead>tr:first-child th:last-child {
+    border-top-right-radius: 1.8rem;
   }
 
-  .ant-table-tbody > tr.ant-table-row:last-child > td:first-child {
-    border-bottom-left-radius: $border-radius;
+  .ant-table-tbody>tr.ant-table-row:last-child>td:first-child {
+    border-bottom-left-radius: 1.8rem;
   }
 
-  .ant-table-tbody > tr.ant-table-row:last-child > td:last-child {
-    border-bottom-right-radius: $border-radius;
+  .ant-table-tbody>tr.ant-table-row:last-child>td:last-child {
+    border-bottom-right-radius: 1.8rem;
   }
 
   //for detail css
-  .ant-table-thead
-    > tr
-    > th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
+  .ant-table-thead>tr>th:not(:last-child):not(.ant-table-selection-column):not(.ant-table-row-expand-icon-cell):not([colspan])::before {
     background-color: transparent;
   }
 
   //PAGINATION
+
+
   .ant-pagination-item {
     border: none;
   }
 
   li.ant-pagination-item {
+    background: none;
     color: $color-black;
   }
 
   li.ant-pagination-item-active {
-    background: $color-white;
-    border-radius: 4px;
-    border: 1px solid $color-primary;
-    color: $color-black;
+    background: #FF9138;
+    border-radius: 1rem;
+    border: 1px solid #FF9138;
+    color: $color-white;
   }
 
   .ant-pagination-disabled .ant-pagination-item-link {
@@ -184,13 +209,13 @@
     width: 4.5rem;
   }
 
-  .ant-table-tbody > tr.ant-table-row-selected > td {
+  .ant-table-tbody>tr.ant-table-row-selected>td {
     background-color: $color-primary-light;
   }
 }
 
-.main-table:hover .ant-table-thead > tr > th {
-  background: #61c6e9;
+.main-table:hover .ant-table-thead>tr>th {
+  background: #FF9138;
 }
 
 .ant-select:not(.ant-select-disabled):hover,

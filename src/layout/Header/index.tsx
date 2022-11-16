@@ -28,7 +28,7 @@ const HeaderComponent = () => {
     <>
       <div className="header-component">
         <div className="header-component__search">
-          <ChangeLanguage />
+          {/* <ChangeLanguage /> */}
         </div>
         <div style={{ stroke: '#FFAC6A', fill: '#FFAC6A' }}>
           <ReactSVG src={bellFullFill} />

@@ -14,7 +14,7 @@ export const getDatas = async (paging: any, option: any, docName: any): Promise<
 
     const q = query(deviceCollecttion,
       orderBy('key'),
-      startAfter((paging.current - 1) * paging.pageSize + 1),
+      startAfter((paging.current - 1) * paging.pageSize),
       limit(paging.pageSize));
 
     const docs = getDocs(q)

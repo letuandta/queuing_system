@@ -1,0 +1,159 @@
+.ant-select {
+    min-width: 35rem;
+}
+
+.label-select {
+    margin-bottom: 1rem;
+}
+
+div.d-flex.flex-column {
+    margin-bottom: 3rem;
+}
+
+.btn_add_device {
+    width: 80px;
+    height: 94px;
+    background: #FFF2E7;
+    box-shadow: 0px 0px 6px #E7E9F2;
+    border-radius: 8px 0px 0px 8px;
+    color: #FF7506;
+    font-weight: 600;
+    font-size: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    right: 0;
+
+    p {
+        text-align: center;
+        width: 60%;
+        margin-bottom: 0;
+    }
+}
+
+.add__device_page {
+    .add_device {
+        margin-top: 50px;
+        padding: 1.6rem 5rem 1.6rem 1.6rem;
+
+        .title__add {
+            font-weight: 700;
+            font-size: 24px;
+            color: #FF7506;
+            padding: 16px 0px;
+        }
+
+        .content__add {
+            height: 550px;
+            background: #FFFFFF;
+            padding-left: 2rem;
+
+            box-shadow: 2px 2px 8px rgba(232, 239, 244, 0.8);
+            border-radius: 16px;
+
+            .sub__title__add {
+                font-weight: 700;
+                font-size: 20px;
+                color: #FF7506;
+                padding-top: 16px;
+
+            }
+
+            .body__add {
+                margin-top: 20px;
+
+                .add__input {
+                    width: 95%;
+                    height: 44px;
+                    padding: 10px 270px 10px 12px;
+                    background: #FFFFFF;
+                    /* Gray/$-gray-100 */
+
+                    border: 1.5px solid #D4D4D7;
+                    border-radius: 8px;
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #A9A9B0;
+                }
+
+                .name__add {
+
+                    font-weight: 600;
+                    font-size: 16px;
+                    color: #282739;
+                    margin-bottom: 1rem;
+                }
+
+                .add__service {
+                    width: 97.5%;
+                    height: 44px;
+                    background: #FFFFFF;
+                    /* Gray/$-gray-100 */
+
+                    border: 1.5px solid #D4D4D7;
+                    border-radius: 8px;
+                    line-height: 40px;
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #A9A9B0;
+
+                    .ant-select-selector {
+                        width: 100% !important;
+                        border: none;
+                    }
+                }
+            }
+
+
+
+        }
+
+        .action__add {
+            display: flex;
+            padding: 24px 0px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+
+            .btn__add {
+                width: 147px;
+                height: 48px;
+                border-radius: 8px;
+                line-height: 48px;
+                text-align: center;
+            }
+
+            .btn_cancel {
+                border: 1.5px solid #FF9138;
+                background: #FFF2E7;
+                /* Orange/$-Orange-400 */
+
+                border: 1.5px solid #FF9138;
+                /* down */
+
+                box-shadow: 0px 0px 6px #E7E9F2;
+                font-weight: 700;
+                font-size: 16px;
+                color: #FF9138;
+                margin-right: 32px;
+                cursor: pointer;
+            }
+
+            .btn__add_device {
+                width: 147px;
+                height: 48px;
+                background: #FF9138;
+                box-shadow: 0px 0px 6px #E7E9F2;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 16px;
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+        }
+    }
+}

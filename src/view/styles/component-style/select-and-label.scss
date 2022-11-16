@@ -1,10 +1,15 @@
 .label-select {
   font-weight: $font-weight-medium;
-  font-size: $fs-2;
-  color: $color-primary;
+  font-size: $fs-3;
+  color: $color-black;
+
+  div {
+    margin-bottom: 1rem;
+  }
 }
 
 .select-label-component {
+
   .select-custom,
   .ant-select,
   .ant-select-single,
@@ -16,6 +21,7 @@
       border: 1px solid $color-table-border;
 
       .ant-select-selection-item {
+        font-size: 2rem;
         padding: 0.4rem 1rem;
         margin-right: 1rem;
       }
@@ -23,6 +29,7 @@
       .ant-select-selection-placeholder {
         padding: 0.5rem 0;
       }
+
     }
 
     .ant-select-arrow {
@@ -39,4 +46,12 @@
   .ant-select-single .ant-select-selector .ant-select-selection-placeholder {
     line-height: 3.3rem;
   }
+}
+
+.ant-select-dropdown.ant-select-dropdown-placement-bottomLeft {
+  border-radius: 1rem;
+}
+
+div.ant-select-item.ant-select-item-option.ant-select-item-option-active {
+  background-color: #FFF2E7 !important;
 }

@@ -5,7 +5,7 @@ import { ReactSVG } from 'react-svg';
 
 export const routerViewService: IRouter = {
   path: '/service',
-  name: 'common.service',
+  name: 'common.service.title',
   loader: import('./index'),
   exact: true,
   menu: {

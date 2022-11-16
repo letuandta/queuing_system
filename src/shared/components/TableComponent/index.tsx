@@ -1,4 +1,4 @@
-import { Table } from 'antd';
+import { type PaginationProps, Table } from 'antd';
 import lodash from 'lodash';
 import React, { useCallback, useEffect, useState } from 'react';
 import { useSelector } from 'react-redux';
@@ -13,6 +13,9 @@ import { useAltaIntl } from '@shared/hook/useTranslate';
 import SearchComponent from '../SearchComponent/SearchComponent';
 import Pagination from './Component/Pagination';
 import { IBEColumnsType, IBEPaginationTable, InitOption, InitPagination } from './interface';
+import { type } from 'os';
+import { ReactSVG } from 'react-svg';
+import { nextButton, prevButton } from '@assets/svg';
 
 interface IState {
   pagination: PaginationEntity;
@@ -265,6 +268,19 @@ const TableComponent: React.FC<IBEPaginationTable> = <T extends object>(
     defaultMessage: 'common.keyword',
   });
 
+  const itemRender: PaginationProps['itemRender'] = (_, type, originalElement) => {
+    if (type === 'prev') {
+      return <ReactSVG src={prevButton} />
+    }
+
+    if (type === 'next') {
+      return <ReactSVG src={nextButton} />
+    }
+
+    return originalElement;
+
+  }
+
   return (
     <div className={`card-main-table ${props?.className}`}>
       {search?.placeholder && (
@@ -284,9 +300,10 @@ const TableComponent: React.FC<IBEPaginationTable> = <T extends object>(
         className="main-table"
         dataSource={repository?.value?.data || dataSource}
         loading={props?.loading || repository?.status === 'loading'}
-        pagination={props.pagination !== false && state.pagination}
+        pagination={props.pagination !== false && { ...state.pagination, itemRender: itemRender }}
         onChange={handleChangePage}
         columns={thisColumns}
+        bordered
       />
       {/* {props.pagination !== false && (
         <Pagination pagination={state.pagination} onChange={handleChangePage} />
