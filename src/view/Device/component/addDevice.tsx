@@ -23,26 +23,9 @@ const AddDevice = () => {
     const [deviceusername, setDeviceusername] = useState('')
     const [devicepassword, setDevicepassword] = useState('')
     const [selectedItems, setSelectedItems] = useState<string[]>([]);
+    const [device, setDevice] = useState()
     const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-    const addDevice = async () => {
-        // try {
-        //     const docRef = await addDoc(collection(db, 'devices'), {
-        //         deviceIP: deviceIP,
-        //         deviceName: deviceName,
-        //         deviceID: deviceId,
-        //         deviceStatus: true,
-        //         deviceConnect: true,
-        //         detail: 'chi tiết',
-        //         update: 'cập nhật',
-        //         services: selectedItems
-        //     })
-        //     navigate('/device')
 
-        // }
-        // catch (e) {
-        //     console.log(e);
-
-    }
 
     const dataString: ISelect[] = [{ label: 'common.all', value: undefined }, { label: 'Kiosk', value: "Kiosk" }];
     const selectTypeDevice: ISelectAndLabel = { textLabel: 'Trạng thái hoạt động', dataString, keyLabel: "activeStatus" };
@@ -118,9 +101,9 @@ const AddDevice = () => {
                     <div className="btn__add btn_cancel">
                         Hủy bỏ
                     </div>
-                    <div className="btn__add btn__add_device" onClick={addDevice}>
+                    {/* <div className="btn__add btn__add_device" onClick={addDevice}>
                         Thêm thiết bị
-                    </div>
+                    </div> */}
                 </div>
             </div>
         </div>
