@@ -22,6 +22,7 @@ export interface ISelectAndLabel {
   name?: string;
   keyLabel?: string;
   translate?: boolean;
+  require?: boolean;
 }
 
 const SelectAndLabelComponent: React.FC<ISelectAndLabel> = (props: ISelectAndLabel) => {
@@ -41,7 +42,7 @@ const SelectAndLabelComponent: React.FC<ISelectAndLabel> = (props: ISelectAndLab
     }
   };
   const className = props.className ? props.className : '';
-  const all = intl.formatMessage({ id: 'common.all' });
+  // const all = intl.formatMessage({ id: 'common.all' });
 
   const renderUIOption = React.useMemo(() => {
     if (dataString == null) {
@@ -74,6 +75,7 @@ const SelectAndLabelComponent: React.FC<ISelectAndLabel> = (props: ISelectAndLab
     return (
       <div>
         <FormattedMessage id={props.textLabel} defaultMessage={props.textLabel} />
+        {props?.require ? <span style={{ color: 'red' }}>*</span> : ''}
       </div>
     );
   }, [props.textLabel]);
@@ -85,8 +87,8 @@ const SelectAndLabelComponent: React.FC<ISelectAndLabel> = (props: ISelectAndLab
         {renderUILabel}
         <Select
           className={'select-custom ' + (props.classNameSelect || '')}
-          value={value == null ? all : value}
-          defaultValue={props?.defaultValue ? props?.defaultValue : all}
+          value={value == null ? null : value}
+          defaultValue={props?.defaultValue ? props?.defaultValue : null}
           onChange={onChange}
           disabled={props.disabled}
           suffixIcon={dropdownStatus === false ? <ReactSVG src={downDropdown} /> : <ReactSVG src={upDropdown} />}

@@ -3,11 +3,15 @@
 }
 
 .label-select {
-    margin-bottom: 1rem;
+    margin-bottom: 0;
 }
 
 div.d-flex.flex-column {
     margin-bottom: 3rem;
+}
+
+.device-page{
+    padding-left: 2.4rem;
 }
 
 .btn_add_device {
@@ -18,7 +22,7 @@ div.d-flex.flex-column {
     border-radius: 8px 0px 0px 8px;
     color: #FF7506;
     font-weight: 600;
-    font-size: 14px;
+    font-size: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -35,10 +39,32 @@ div.d-flex.flex-column {
     }
 }
 
+    .ant-select.select-custom.ant-select-single{
+        margin-bottom: 0;
+        width: 95%;
+
+        .ant-select-selector{
+            margin-bottom: 0;
+            height: 50px;
+
+            
+
+            span.ant-select-selection-item-content{
+                background-color: #FF9138;
+            }
+        }
+
+        .ant-select-arrow{
+            margin-top: 1rem;
+        }
+    }
+
 .add__device_page {
+padding-left: 1.6rem;
+
     .add_device {
         margin-top: 50px;
-        padding: 1.6rem 5rem 1.6rem 1.6rem;
+        padding: 1.6rem 5rem 1.6rem 0rem;
 
         .title__add {
             font-weight: 700;
@@ -68,7 +94,7 @@ div.d-flex.flex-column {
 
                 .add__input {
                     width: 95%;
-                    height: 44px;
+                    height: 50px;
                     padding: 10px 270px 10px 12px;
                     background: #FFFFFF;
                     /* Gray/$-gray-100 */
@@ -83,7 +109,7 @@ div.d-flex.flex-column {
                 .name__add {
 
                     font-weight: 600;
-                    font-size: 16px;
+                    font-size: 1.8rem;
                     color: #282739;
                     margin-bottom: 1rem;
                 }

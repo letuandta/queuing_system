@@ -23,6 +23,7 @@ import devicePresenter from '@modules/device/presenter';
 import DeviceEntity from '@modules/device/entity';
 import { ReactSVG } from 'react-svg';
 import { addButton } from '@assets/svg';
+import { Link } from 'react-router-dom';
 
 const dataTable = require('./fakedata/data.json');
 
@@ -186,10 +187,13 @@ const Device = () => {
           disableFirstCallApi={true}
         />
       </div>
+      <Link to={'/device/add'}>
       <div className='btn_add_device'>
         <ReactSVG src={addButton} />
         <p>Thêm thiết bị</p>
       </div>
+      </Link>
+      
     </div>
   );
 };
