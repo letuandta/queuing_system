@@ -96,8 +96,6 @@ export default {
   'common.homepage': 'Dashboard',
   'common.homepage.title': 'Biểu đồ cấp số',
   'common.device': 'Thiết bị',
-  'common.device.title': 'Quản lí thiết bị',
-  'common.device.add': 'Thêm thiết bị',
   'common.service': 'Dịch vụ',
   'common.service.title': 'Quản lí dịch vụ',
   'common.provide.number': 'Cấp số',

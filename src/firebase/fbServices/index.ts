@@ -26,16 +26,16 @@ export const getDatas = async (paging: any, option: any, collectionName: any): P
   const customdata = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
 
-  // console.group([
-  //   "===========================================================================",
-  //   customdata,
-  //   total.data().count,
-  //   paging,
-  //   option.filter.field,
-  //   option.filter.value,
-  //   "============================================================================"
-  // ]);
-  // console.groupEnd();
+  console.group([
+    "===========================================================================",
+    customdata,
+    total.data().count,
+    paging,
+    option.filter.field,
+    option.filter.value,
+    "============================================================================"
+  ]);
+  console.groupEnd();
   return { data: customdata, info: { total: total.data().count } }
 }
 

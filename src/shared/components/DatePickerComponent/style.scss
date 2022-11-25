@@ -1,0 +1,44 @@
+div.d-flex.flex-column {
+    margin-bottom: 1rem;
+}
+
+.main-card .label-select {
+    margin-bottom: 1rem !important;
+}
+
+.datepicker-custom {
+
+    .datepicker-custom-label {
+        span {
+            color: #282739;
+            font-size: 16px;
+            font-weight: 600;
+            line-height: 36px;
+        }
+    }
+
+    .datepicker-custom-content {
+        display: flex;
+        align-items: center;
+
+        p {
+            margin: 0 1rem;
+        }
+
+        .ant-picker {
+            border-radius: 10px;
+            border: 1px solid #00000038;
+
+
+            .ant-picker-input {
+                flex-direction: row-reverse;
+
+                .ant-picker-suffix {
+
+                    margin-inline-end: 10px;
+                }
+            }
+        }
+
+    }
+}

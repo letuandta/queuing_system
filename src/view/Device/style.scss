@@ -2,15 +2,15 @@
     min-width: 35rem;
 }
 
-.label-select {
-    margin-bottom: 0;
+.main-card .label-select {
+    margin-bottom: 1rem !important;
 }
 
 div.d-flex.flex-column {
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
 }
 
-.device-page{
+.device-page {
     padding-left: 2.4rem;
 }
 
@@ -39,28 +39,29 @@ div.d-flex.flex-column {
     }
 }
 
-    .ant-select.select-custom.ant-select-single{
+.ant-select.select-custom.ant-select-single {
+    margin-bottom: 0;
+    width: 95%;
+
+    .ant-select-selector {
         margin-bottom: 0;
-        width: 95%;
+        height: 50px;
 
-        .ant-select-selector{
-            margin-bottom: 0;
-            height: 50px;
 
-            
 
-            span.ant-select-selection-item-content{
-                background-color: #FF9138;
-            }
-        }
-
-        .ant-select-arrow{
-            margin-top: 1rem;
+        span.ant-select-selection-item-content {
+            background-color: #FF9138;
         }
     }
 
+    .ant-select-arrow {
+        margin-top: 1rem;
+    }
+}
+
 .add__device_page {
-padding-left: 1.6rem;
+    padding-left: 1.6rem;
+    position: relative;
 
     .add_device {
         margin-top: 50px;
@@ -77,6 +78,7 @@ padding-left: 1.6rem;
             height: 550px;
             background: #FFFFFF;
             padding-left: 2rem;
+            position: relative;
 
             box-shadow: 2px 2px 8px rgba(232, 239, 244, 0.8);
             border-radius: 16px;
@@ -89,14 +91,28 @@ padding-left: 1.6rem;
 
             }
 
+
             .body__add {
                 margin-top: 20px;
+
+                .ant-spin-dot {
+                    font-size: 20px;
+                    width: 3em;
+                    height: 3em;
+                    top: 9rem;
+
+                    .ant-spin-dot-item {
+                        width: 2rem;
+                        height: 2rem;
+                        background-color: #FF7506;
+                    }
+                }
 
                 .add__input {
                     width: 95%;
                     height: 50px;
                     padding: 10px 270px 10px 12px;
-                    background: #FFFFFF;
+
                     /* Gray/$-gray-100 */
 
                     border: 1.5px solid #D4D4D7;
@@ -182,4 +198,94 @@ padding-left: 1.6rem;
             }
         }
     }
+
+
+
+    .spin_loading {
+        width: 97%;
+        height: 82%;
+        background: #0000;
+        text-align: center;
+        position: absolute;
+        z-index: 9;
+
+        .ant-spin-dot {
+            font-size: 20px;
+            width: 3em;
+            height: 3em;
+            top: 9rem;
+
+            .ant-spin-dot-item {
+                width: 2rem;
+                height: 2rem;
+                background-color: #FF7506;
+            }
+        }
+    }
+}
+
+.detail__device_page {
+    padding-left: 1.6rem;
+    position: relative;
+
+    .detail_device {
+        margin-top: 50px;
+        padding: 1.6rem 5rem 1.6rem 0rem;
+
+        .title__detail {
+            font-weight: 700;
+            font-size: 24px;
+            color: #FF7506;
+            padding: 16px 0px;
+        }
+
+        .content__detail {
+            height: 550px;
+            background: #FFFFFF;
+            padding-left: 2rem;
+            position: relative;
+
+            box-shadow: 2px 2px 8px rgba(232, 239, 244, 0.8);
+            border-radius: 16px;
+
+            .sub__title__detail {
+                font-weight: 700;
+                font-size: 20px;
+                color: #FF7506;
+                padding-top: 16px;
+
+            }
+
+
+            .body__detail {
+                margin-top: 20px;
+
+                .ant-spin {
+                    width: 100%;
+
+                    .ant-spin-dot {
+                        font-size: 20px;
+                        width: 3em;
+                        height: 3em;
+                        top: 5rem;
+
+                        .ant-spin-dot-item {
+                            width: 2rem;
+                            height: 2rem;
+                            background-color: #FF7506;
+                        }
+                    }
+                }
+
+
+
+            }
+
+
+
+        }
+    }
+
+
+
 }

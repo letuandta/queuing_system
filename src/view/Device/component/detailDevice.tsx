@@ -1,129 +1,139 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import MainTitleComponent from '@shared/components/MainTitleComponent';
-import { Avatar, Col, Row, Input, Select } from 'antd';
+import { Avatar, Col, Row, Input, Select, notification, Spin } from 'antd';
 import { useState } from 'react';
-import { addDoc, collection } from "firebase/firestore";
-import { FirebaseConfig } from 'src/firebase/configs';
-import { useNavigate } from "react-router-dom";
-import { routerViewAddDevice, routerViewDevice } from '../router';
+import { routerViewAddDevice, routerViewDetailDevice, routerViewDevice } from '../router';
 import '../style.scss'
-import SelectAndLabelComponent, { ISelectAndLabel } from '@shared/components/SelectAndLabelComponent';
-import ISelect from '@core/select';
+import { Link, useParams } from 'react-router-dom';
+import devicePresenter from '@modules/device/presenter';
+import { useSingleAsync } from '@shared/hook/useAsync';
+import { useAltaIntl } from '@shared/hook/useTranslate';
+import DeviceEntity from '@modules/device/entity';
+import { ReactSVG } from 'react-svg';
+import { addButton } from '@assets/svg';
 
 
 
 const DetailDevice = () => {
-    const navigate = useNavigate()
-    const db = FirebaseConfig.getInstance().fbDB
-    const OPTIONS = ['Khám tim mạch', 'Khám sản - Phụ khoa', 'Khám răng hàm mặt', 'Khám tai mũi họng', 'Khám hô hấp', 'Khám tổng quát'];
-    const [deviceId, setDeviceId] = useState('')
-    const [deviceName, setDeviceName] = useState('')
-    const [catedevice, setCatedevice] = useState('')
-    const [deviceIP, setDeviceIP] = useState('')
-    const [deviceusername, setDeviceusername] = useState('')
-    const [devicepassword, setDevicepassword] = useState('')
-    const [selectedItems, setSelectedItems] = useState<string[]>([]);
-    const filteredOptions = OPTIONS.filter(o => !selectedItems.includes(o));
-    const addDevice = async () => {
-        // try {
-        //     const docRef = await addDoc(collection(db, 'devices'), {
-        //         deviceIP: deviceIP,
-        //         deviceName: deviceName,
-        //         deviceID: deviceId,
-        //         deviceStatus: true,
-        //         deviceConnect: true,
-        //         detail: 'chi tiết',
-        //         update: 'cập nhật',
-        //         services: selectedItems
-        //     })
-        //     navigate('/device')
+    const { deviceId } = useParams()
+    const [api, contextHolder] = notification.useNotification();
+    const { formatMessage } = useAltaIntl();
+    const { getDevice } = devicePresenter;
+    const getDeviceById = useSingleAsync(getDevice);
+    const [device, setDevice] = useState<DeviceEntity | null>(null);
 
-        // }
-        // catch (e) {
-        //     console.log(e);
+    const openNotification = (description: string) => {
+        api.error({
+            message: 'ERROR',
+            description: description,
+            placement: 'top',
+        });
+    };
 
-    }
+    useEffect(() => {
 
-    const dataString: ISelect[] = [{ label: 'common.all', value: undefined }, { label: 'Kiosk', value: "Kiosk" }];
-    const selectTypeDevice: ISelectAndLabel = { textLabel: 'Trạng thái hoạt động', dataString, keyLabel: "activeStatus" };
+        getDeviceById.execute(deviceId)
+            .then((response) => {
+                setDevice(response.data)
+                console.log(response.data)
+            })
+            .catch(() => {
+                openNotification("Đã có lỗi sảy ra")
+            })
+
+    }, [])
+
+
 
     return (
-        <div className='add__device_page'>
-            <MainTitleComponent breadcrumbs={[routerViewDevice, routerViewAddDevice]} title={'commom.device.add'} classTitle='default-title' />
-            <div className="add_device">
-                <div className="content__add">
-                <div className="sub__title__add">
+        <div className='detail__device_page'>
+            {contextHolder}
+            <MainTitleComponent breadcrumbs={[routerViewDevice, routerViewDetailDevice]} title={'device.detail'} classTitle='default-title' />
+            <div className="detail_device">
+                <div className="content__detail">
+                    <div className="sub__title__detail">
                         Thông tin thiết bị
                     </div>
-                    <div className="body__add">
-                        <Row>
-                        <Col span={12}>
-                            <div>
-                                <span>
-                                    <strong>Thiet bi</strong>
-                                    lablablabla
-                                </span>
-                            </div>
-                        </Col>
-                        <Col span={12}>
-                        <div>
-                                <span>
-                                    <strong>Thiet bi</strong>
-                                    lablablabla
-                                </span>
-                            </div>
-                        </Col>
-                        <Col span={12}>
-                        <div>
-                                <span>
-                                    <strong>Thiet bi</strong>
-                                    lablablabla
-                                </span>
-                            </div>
-                        </Col>
-                        <Col span={12}>
-                        <div>
-                                <span>
-                                    <strong>Thiet bi</strong>
-                                    lablablabla
-                                </span>
-                            </div>
-                        </Col>
-                        <Col span={12}>
-                        <div>
-                                <span>
-                                    <strong>Thiet bi</strong>
-                                    lablablabla
-                                </span>
-                            </div>
-                        </Col>
-                        <Col span={12}>
-                        <div>
-                                <span>
-                                    <strong>Thiet bi</strong>
-                                    lablablabla
-                                </span>
-                            </div>
-                        </Col>
-                        <Col span={24}>
-                        <div>
-                                <span>
-                                    <strong>Thiet bi</strong>
-                                </span>
-                            </div>
-                        </Col>
-                        <Col span={24}>
-                        <div>
-                                <span>
-                                    lablablablaaaaaasfsjDHDKJFSBKABHJKJFkjfhkhfkjfhjkfhkjhs
-                                </span>
-                            </div>
-                        </Col>
-                            
-                        </Row>
+                    <div className="body__detail">
+                        {
+                            device === null
+                                ? <Spin />
+                                : <Row>
+                                    <Col span={12}>
+                                        <div>
+                                            <span>
+                                                <strong>{formatMessage('device.deviceId')}:  </strong>
+                                                {device?.deviceId}
+                                            </span>
+                                        </div>
+                                    </Col>
+                                    <Col span={12}>
+                                        <div>
+                                            <span>
+                                                <strong>{formatMessage('device.deviceType')}:  </strong>
+                                                {device?.deviceType}
+                                            </span>
+                                        </div>
+                                    </Col>
+                                    <Col span={12}>
+                                        <div>
+                                            <span>
+                                                <strong>{formatMessage('device.deviceName')}:  </strong>
+                                                {device?.deviceName}
+                                            </span>
+                                        </div>
+                                    </Col>
+                                    <Col span={12}>
+                                        <div>
+                                            <span>
+                                                <strong>{formatMessage('device.deviceSignInName')}:  </strong>
+                                                {device?.signInName}
+                                            </span>
+                                        </div>
+                                    </Col>
+                                    <Col span={12}>
+                                        <div>
+                                            <span>
+                                                <strong>{formatMessage('device.IPAddress')}:  </strong>
+                                                {device?.IPAddress}
+                                            </span>
+                                        </div>
+                                    </Col>
+                                    <Col span={12}>
+                                        <div>
+                                            <span>
+                                                <strong>{formatMessage('device.password')}:  </strong>
+                                                {device?.password}
+                                            </span>
+                                        </div>
+                                    </Col>
+                                    <Col span={24}>
+                                        <div>
+                                            <span>
+                                                <strong>{formatMessage('device.serviceUse')}:</strong>
+                                            </span>
+                                        </div>
+                                    </Col>
+                                    <Col span={24}>
+                                        <div>
+                                            <span>
+                                                {device?.serviceUse}
+                                            </span>
+                                        </div>
+                                    </Col>
+
+                                </Row>
+                        }
+
                     </div>
-                   </div>
+                </div>
             </div>
+            <Link to={'/device/update'}>
+                <div className='btn_add_device'>
+                    <ReactSVG src={addButton} />
+                    <p>{formatMessage('device.update')}</p>
+                </div>
+            </Link>
         </div>
     )
 }

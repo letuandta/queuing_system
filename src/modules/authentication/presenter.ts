@@ -1,5 +1,7 @@
 import store from '@core/store/redux';
-import  { removeProfile, setToken } from './profileStore';
+import React, { useEffect, useState } from 'react';
+import { useSelector } from 'react-redux';
+import { removeProfile, setToken, TokenSelector } from './profileStore';
 import authenticationRepository, { ILoginDTO } from './repository';
 
 const authenticationPresenter = { ...authenticationRepository };
@@ -17,11 +19,14 @@ authenticationPresenter.logout = async () => {
   return response;
 };
 
+
+
+
 // authenticationPresenter.getProfile = () => {
-//   return authenticationRepository.getProfile().then((user: UserEntity) => {
-//     store.dispatch(profileStore.actions.fetchProfile({ user }));
-//     return Promise.resolve(user);
-//   });
+//   // return authenticationRepository.getProfile().then((user: UserEntity) => {
+//   //   store.dispatch(profileStore.actions.fetchProfile({ user }));
+//   //   return Promise.resolve(user);
+//   // });
 // };
 
 export default authenticationPresenter;

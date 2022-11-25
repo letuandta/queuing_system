@@ -1,0 +1,17 @@
+export default {
+    'service': 'Dịch vụ',
+    'service.serviceId': 'Mã dịch vụ',
+    'service.serviceName': 'Tên dịch vụ',
+    'service.description': 'Mô tả',
+    'service.provideRule': 'Qui tắc cấp số',
+    'service.autoFrom': 'Tự động tăng từ',
+    'service.autoTo': 'đến',
+    'service.prefix': 'Prefix',
+    'service.surfix': 'Surfix',
+    'service.resetDaily': 'Reset mỗi ngày',
+    'service.title': 'Quản lí dịch vụ',
+    'service.add': 'Thêm dịch vụ',
+    'service.detail': 'Chi tiết dịch vụ',
+    'service.update': 'Cập nhật dịch vụ',
+    'service.activeStatus': 'Trạng thái hoạt động',
+}

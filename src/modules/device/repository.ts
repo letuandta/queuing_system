@@ -12,11 +12,11 @@ const getDevice = (documentId: string): Promise<{ data: DeviceEntity; status: bo
     return getSingleData(collection, documentId)
 }
 
-const addDevice = (data: DeviceEntity): Promise<{ status: boolean }> => {
+const addDevice = (data: Partial<DeviceEntity>): Promise<{ status: boolean }> => {
     return addData(collection, data)
 }
 
-const changeDevice = (documentId: string, data: DeviceEntity): Promise<{ status: boolean }> => {
+const changeDevice = (documentId: string, data: Partial<DeviceEntity>): Promise<{ status: boolean }> => {
     return ChangeData(collection, documentId, data)
 }
 

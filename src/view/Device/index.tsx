@@ -1,6 +1,6 @@
 import './style.scss';
 
-import { Space } from 'antd';
+import { Popover, Space } from 'antd';
 import { ColumnsType } from 'antd/lib/table';
 import React, { Key, useEffect, useState } from 'react';
 
@@ -38,26 +38,26 @@ const Device = () => {
   const idChooses = 'id'; //get your id here. Ex: accountId, userId,...
   const columns: ColumnsType<DeviceEntity> = [
     {
-      title: 'Mã thiết bị',
+      title: 'device.deviceId',
       dataIndex: 'deviceId',
       align: 'left'
     },
     {
-      title: 'Tên thiết bị',
+      title: 'device.deviceName',
       dataIndex: 'deviceName',
       align: 'left',
     },
     {
-      title: 'Địa chỉ IP',
+      title: 'device.IPAddress',
       dataIndex: 'IPAddress',
     },
     {
-      title: 'Trạng thái hoạt động',
+      title: 'device.activeStatus',
       dataIndex: 'activeStatus',
       render: (status: boolean) => (
         <>
-          {status ? <CircleLabel text={formatMessage('common.statusActive')} colorCode="green" /> :
-            <CircleLabel text={formatMessage('common.statusNotActive')} colorCode="red" />
+          {status ? <CircleLabel text={formatMessage('common.active')} colorCode="green" /> :
+            <CircleLabel text={formatMessage('common.deactive')} colorCode="red" />
           }
         </>
       )
@@ -66,18 +66,18 @@ const Device = () => {
       ,
     },
     {
-      title: 'Trạng thái kết nối',
+      title: 'device.connectStatus',
       dataIndex: 'connectStatus',
       render: (connect: boolean) => (
         <>
-          {connect ? <CircleLabel text={formatMessage('common.onconnect')} colorCode="green" /> :
-            <CircleLabel text={formatMessage('common.stopconnect')} colorCode="red" />
+          {connect ? <CircleLabel text={formatMessage('common.statusConnect')} colorCode="green" /> :
+            <CircleLabel text={formatMessage('common.statusDisconnect')} colorCode="red" />
           }
         </>
       )
     },
     {
-      title: 'Dịch vụ sử dụng',
+      title: 'device.serviceUse',
       dataIndex: 'serviceUse',
       render: text => <>
         <div style={{
@@ -87,37 +87,37 @@ const Device = () => {
           textOverflow: "ellipsis"
         }}>{text}
         </div>
+        <Popover content={text}>
+          <a style={{ textDecoration: "underline", color: "#4277FF", }}>xem thêm</a>
+        </Popover>
 
-        <a style={{ textDecoration: "underline", color: "#4277FF", }}>xem thêm</a>
       </>,
 
     }, {
-      title: 'Chi tiết',
+      title: 'device.detail',
       render: (action: any, record: any) => {
-
-
         return (
           <>
-            <a
-              // onClick={() => onDetail(record.id)}
+            <Link
+              to={`/device/${record.id}`}
               style={{ textDecoration: "underline", color: "#4277FF", }}
-            >Chi tiết</a>
+            >Chi tiết</Link>
           </>
 
         )
       }
     },
     {
-      title: 'Cập nhật',
+      title: 'device.update',
       render: (action: any, record: any) => {
 
 
         return (
           <>
-            <a
-              // onClick={() => onUpdate(record.id)}
+            <Link
+              to={`/device/update/${record.id}`}
               style={{ textDecoration: "underline", color: "#4277FF", }}
-            >Cập nhật</a>
+            >Cập nhật</Link>
           </>
 
         )
@@ -131,10 +131,15 @@ const Device = () => {
   };
 
 
-  const dataString: ISelect[] = [{ label: 'common.all', value: undefined }, { label: 'Kiosk', value: "Kiosk" }];
+  const dataActiveStatus: ISelect[] = [{ label: 'common.all', value: undefined },
+  { label: 'common.active', value: "common.active" },
+  { label: 'common.deactive', value: "common.deactive" }];
+  const dataConnectStatus: ISelect[] = [{ label: 'common.all', value: undefined },
+  { label: 'common.statusConnect', value: "common.statusConnect" },
+  { label: 'common.statusDisconnect', value: "common.statusDisconnect" }];
   const arraySelectFilter: ISelectAndLabel[] = [
-    { textLabel: 'Trạng thái hoạt động', dataString, keyLabel: "activeStatus" },
-    { textLabel: 'Trạng thái kết nối', dataString, keyLabel: "connectStatus" },
+    { textLabel: 'Trạng thái hoạt động', dataString: dataActiveStatus, keyLabel: "activeStatus" },
+    { textLabel: 'Trạng thái kết nối', dataString: dataConnectStatus, keyLabel: "connectStatus" },
   ];
 
   useEffect(() => {
@@ -152,7 +157,7 @@ const Device = () => {
   };
   return (
     <div className="device-page">
-      <MainTitleComponent breadcrumbs={routerViewDevice} title={'common.device.title'} classTitle='default-title' />
+      <MainTitleComponent breadcrumbs={routerViewDevice} title={'device.title'} classTitle='default-title' />
       <div className="main-card">
         <div className="d-flex flex-row justify-content-md-between mb-3 align-items-end">
           <div className="d-flex flex-row ">
@@ -188,12 +193,12 @@ const Device = () => {
         />
       </div>
       <Link to={'/device/add'}>
-      <div className='btn_add_device'>
-        <ReactSVG src={addButton} />
-        <p>Thêm thiết bị</p>
-      </div>
+        <div className='btn_add_device'>
+          <ReactSVG src={addButton} />
+          <p>{formatMessage('device.add')}</p>
+        </div>
       </Link>
-      
+
     </div>
   );
 };

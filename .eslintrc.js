@@ -33,6 +33,7 @@ module.exports = {
     project: './tsconfig.json',
   },
   rules: {
+    'no-console': 'off',
     'brace-style': [2, '1tbs', { allowSingleLine: true }],
     'comma-style': [2, 'first', { exceptions: { ArrayExpression: true, ObjectExpression: true } }],
     curly: 2,

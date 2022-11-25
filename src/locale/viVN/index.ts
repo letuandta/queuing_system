@@ -6,6 +6,8 @@ import Form from './form';
 import pageError from './pageError';
 import roles from './roles';
 import server from './server';
+import device from './device';
+import service from './service'
 
 export default {
   ...viVN,
@@ -15,4 +17,6 @@ export default {
   ...pageError,
   ...roles,
   Form,
+  ...device,
+  ...service,
 };

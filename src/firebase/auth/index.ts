@@ -1,12 +1,16 @@
-import { ILoginDTO } from '@modules/authentication/repository';
+import { IForgotPasswordDTO, ILoginDTO, IResetPasswordDTO } from '@modules/authentication/repository';
 import { FirebaseConfig } from '../configs';
+
+
+type IPayLoad = ILoginDTO | IForgotPasswordDTO | IResetPasswordDTO
+
 
 function AuthenticationRepositoriesImpl() {
   const auth = FirebaseConfig.getInstance().auth;
 
   interface IParamsFirebaseAuth {
     asyncFunction: (...params: any[]) => Promise<any>,
-    payload?: ILoginDTO
+    payload?: any
   }
 
 
@@ -22,6 +26,8 @@ function AuthenticationRepositoriesImpl() {
   ) => {
     let args: any[] = [];
     if (payload !== undefined) { args = Object.values(payload); }
+    console.log(args);
+
     return asyncFunction?.(auth, ...args);
   };
 

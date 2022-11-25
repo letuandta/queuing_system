@@ -5,3 +5,10 @@ export const routerForgotPassword: IRouter = {
   loader: import('./index'),
   exact: true,
 };
+
+
+export const routerResetPassword: IRouter = {
+  path: '/reset-password',
+  loader: import('./resetPassword'),
+  exact: true,
+};

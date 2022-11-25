@@ -1,6 +1,6 @@
 import httpRepository from '@core/repository/http';
 import User from '@modules/user/entity';
-import { signInWithEmailAndPassword, signOut } from 'firebase/auth';
+import { confirmPasswordReset, sendPasswordResetEmail, signInWithEmailAndPassword, signOut } from 'firebase/auth';
 import { fbRepositorires } from 'src/firebase/auth';
 
 const register = (payload: any) => {
@@ -11,14 +11,19 @@ const register = (payload: any) => {
     config: { isPrivate: false },
   });
 };
-const forgotPass = (payload: any) => {
-  return httpRepository.execute({
-    path: `api/Users/PasswordRecovery?UserName=${payload.email}`,
-    method: 'get',
-    showSuccess: false,
-    showError: false,
-    config: { isPrivate: false },
-  });
+
+export interface IForgotPasswordDTO {
+  email: string
+}
+
+const forgotPass = (payload: IForgotPasswordDTO) => {
+
+  let newPayload = Object.assign(payload, { action: { url: "http://localhost:4321/login" } })
+
+  return fbRepositorires.execute({
+    asyncFunction: sendPasswordResetEmail,
+    payload: newPayload
+  })
 };
 
 const CheckRecoveryToken = (payload: any) => {
@@ -67,15 +72,16 @@ const logout = () => {
 };
 
 
-const resetPass = (payload: any, otp: string) => {
-  return httpRepository.execute({
-    path: `/api/Users/resetForgotPassword/key=${otp}`,
-    method: 'put',
-    payload,
-    showSuccess: false,
-    showError: false,
-    config: { isPrivate: false },
-  });
+export interface IResetPasswordDTO {
+  oobCode: string | null,
+  newPassword: string
+}
+
+const resetPass = (payload: IResetPasswordDTO) => {
+  return fbRepositorires.execute({
+    asyncFunction: confirmPasswordReset,
+    payload: payload
+  })
 };
 
 const getProfile = () => {

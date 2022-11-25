@@ -45,7 +45,7 @@ const App: React.FC = () => {
     return locale[language];
   }, [language]);
   useEffect(() => {
-    if (!token) {
+    if (!token && !location.search.match(/^(?!\s*$).+/)) {
       history('/login');
     }
 

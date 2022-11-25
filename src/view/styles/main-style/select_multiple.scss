@@ -10,10 +10,10 @@
     background: #FF9138;
     border-color: white;
     border-radius: 0.7rem;
-    line-height: 1rem;
+    line-height: 4rem;
     padding: 15px;
 
-    .ant-select-selection-item-content{
+    .ant-select-selection-item-content {
       color: white;
     }
   }
@@ -24,8 +24,7 @@
     color: white;
   }
 
-  .ant-select-item-option-selected:not(.ant-select-item-option-disabled)
-    .ant-select-item-option-state {
+  .ant-select-item-option-selected:not(.ant-select-item-option-disabled) .ant-select-item-option-state {
     color: $color-main-text;
   }
 
