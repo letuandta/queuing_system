@@ -18,3 +18,4 @@ export const downDropdown = require('./downDropdown.svg');
 export const addButton = require('./addButton.svg');
 export const calendar = require('./calendar.svg');
 export const backButton = require('./backButton.svg')
+export const downloadButton = require('./document-download.svg')

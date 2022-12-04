@@ -27,6 +27,20 @@ export const routerViewSettingManageRole: IRouter = {
   },
 };
 
+export const routerViewAddRole: IRouter = {
+  path: '/setting/manage/role/add',
+  name: 'rule.add',
+  loader: import('./manage/addRole'),
+  exact: true,
+};
+
+export const routerViewUpdateRole: IRouter = {
+  path: '/setting/manage/role/update/:roleId',
+  name: 'rule.update',
+  loader: import('./manage/updateRole'),
+  exact: true,
+};
+
 export const routerViewSettingLogUser: IRouter = {
   path: '/setting/log/user',
   name: 'common.log.user',

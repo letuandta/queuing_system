@@ -1,18 +1,17 @@
 import React from 'react'
 import MainTitleComponent from '@shared/components/MainTitleComponent';
-import { notification, Spin } from 'antd';
+import { Modal, notification, Spin } from 'antd';
 import { useState } from 'react';
 import { useNavigate } from "react-router-dom";
 import { routerViewAddProvide, routerViewProvideNumber } from '../router';
 import '../style.scss'
 import SelectAndLabelComponent, { ISelectAndLabel } from '@shared/components/SelectAndLabelComponent';
 import ISelect from '@core/select';
-import DeviceEntity from '@modules/device/entity';
 import { useAltaIntl } from '@shared/hook/useTranslate';
-import devicePresenter from '@modules/device/presenter';
 import { useSingleAsync } from '@shared/hook/useAsync';
 import ProvideEntity from '@modules/provide/entity';
 import providePresenter from '@modules/provide/presenter';
+import moment from 'moment';
 
 
 
@@ -24,6 +23,7 @@ const AddProvide: React.FC = () => {
     const [api, contextHolder] = notification.useNotification();
     const [serviceType, setServiceType] = useState('')
     const [loading, setLoading] = useState<boolean>(false)
+    const [openModal, setOpenModal] = useState<boolean>(false)
     const provide: Partial<ProvideEntity> = {
         key: 60,
         Name: 'Lê Tuấn Đat',
@@ -36,6 +36,12 @@ const AddProvide: React.FC = () => {
         phone: '0123456789',
         email: 'LeTuanDat@gmail.com',
     }
+    const [addModal, setAddModal] = useState({
+        order: 0,
+        start: '',
+        end: '',
+        service: '',
+    })
 
     const onSelectDeviceTypeChange = (value: string) => {
         setServiceType(value);
@@ -65,14 +71,18 @@ const AddProvide: React.FC = () => {
         if (provide.service === '') {
             openNotification('Mời chọn dịch vụ trước')
             setLoading(prev => !prev)
+
         }
         else
             addNewProvide.execute(provide)
                 .then((response) => {
-                    if (response.status) navigate('/provide')
+                    if (response.status) {
+                        showModal(provide.order ?? 0, provide.start ?? '', provide.end ?? '', provide.service ?? '')
+                        setLoading(prev => !prev)
+                    }
                 })
                 .catch(() => {
-                    setLoading(prev => !prev)
+
                     openNotification("Đã có lỗi sảy ra")
                 })
     }
@@ -81,6 +91,15 @@ const AddProvide: React.FC = () => {
     const handleCancle = () => {
         navigate('/provide')
     }
+
+    const showModal = (order: number, start: string, end: string, service: string,) => {
+        setAddModal(prev => ({ ...prev, order: order, start: start, end: end, service: service }))
+        setOpenModal(true);
+    };
+
+    const handleCancelModal = () => {
+        setOpenModal(false);
+    };
 
     const dataString: ISelect[] = [
         {
@@ -117,6 +136,22 @@ const AddProvide: React.FC = () => {
                 <div className='spin_loading'>
                     <Spin />
                 </div>}
+            <Modal
+                open={openModal}
+                onCancel={handleCancelModal}
+                footer={[
+                    <>
+                        <p>Thời gian cấp: {addModal.start !== '' ? moment(addModal.start).format('HH:mm - DD/MM/YYYY') : ''}</p>
+                        <p>Thời gian cấp: {addModal.start !== '' ? moment(addModal.start).format('HH:mm - DD/MM/YYYY') : ''}</p>
+                    </>
+                ]}
+            >
+                <div>
+                    <p className='add-provide-modal-title'>Số thứ tự được cấp</p>
+                    <p className='add-provide-modal-order'>{addModal.order}</p>
+                    <p className='add-provide-modal-service'>DV: {addModal.service}(tại quầy số 1)</p>
+                </div>
+            </Modal>
             <MainTitleComponent breadcrumbs={[routerViewProvideNumber, routerViewAddProvide]} title={'provide.add'} classTitle='default-title' />
             <div className="add_provide">
                 <div className="content__add">

@@ -1,0 +1,236 @@
+.ant-select {
+    min-width: 35rem;
+}
+
+.main-card .label-select {
+    margin-bottom: 1rem !important;
+}
+
+div.d-flex.flex-column {
+    margin-bottom: 1rem;
+}
+
+.setting-page {
+    padding-left: 2.4rem;
+
+    .datepicker-custom-content {
+        margin-bottom: 1rem;
+    }
+}
+
+.btn_add_setting {
+    width: 80px;
+    height: 94px;
+    background: #FFF2E7;
+    box-shadow: 0px 0px 6px #E7E9F2;
+    border-radius: 8px 0px 0px 8px;
+    color: #FF7506;
+    font-weight: 600;
+    font-size: 1rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    position: absolute;
+    top: 30%;
+    right: 0;
+
+    p {
+        text-align: center;
+        width: 60%;
+        margin-bottom: 0;
+    }
+}
+
+.ant-select.select-custom.ant-select-single {
+    margin-bottom: 0;
+    width: 95%;
+
+    .ant-select-selector {
+        margin-bottom: 0;
+        height: 50px;
+
+
+
+        span.ant-select-selection-item-content {
+            background-color: #FF9138;
+        }
+    }
+
+    .ant-select-arrow {
+        margin-top: 1rem;
+    }
+}
+
+.add__setting_page {
+    padding-left: 1.6rem;
+    position: relative;
+
+    .add_setting {
+        margin-top: 50px;
+        padding: 1.6rem 5rem 1.6rem 0rem;
+
+        .title__add {
+            font-weight: 700;
+            font-size: 24px;
+            color: #FF7506;
+            padding: 16px 0px;
+        }
+
+        .content__add {
+            height: 550px;
+            background: #FFFFFF;
+            padding-left: 2rem;
+            position: relative;
+
+            box-shadow: 2px 2px 8px rgba(232, 239, 244, 0.8);
+            border-radius: 16px;
+
+            .sub__title__add {
+                font-weight: 700;
+                font-size: 20px;
+                color: #FF7506;
+                padding-top: 16px;
+
+            }
+
+
+            .body__add {
+                margin-top: 20px;
+
+                .ant-spin-dot {
+                    font-size: 20px;
+                    width: 3em;
+                    height: 3em;
+                    top: 9rem;
+
+                    .ant-spin-dot-item {
+                        width: 2rem;
+                        height: 2rem;
+                        background-color: #FF7506;
+                    }
+                }
+
+                .delegation {
+                    width: 95%;
+                    background-color: #FFF2E7;
+                    padding: 1rem;
+                    max-height: 40rem;
+                    overflow: scroll;
+                }
+
+                .add__input {
+                    width: 95%;
+                    padding: 10px 270px 10px 12px;
+
+                    /* Gray/$-gray-100 */
+
+                    border: 1.5px solid #D4D4D7;
+                    border-radius: 8px;
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #A9A9B0;
+                }
+
+                .name__add {
+
+                    font-weight: 600;
+                    font-size: 1.8rem;
+                    color: #282739;
+                    margin-bottom: 1rem;
+                }
+
+                .add__service {
+                    width: 97.5%;
+                    height: 44px;
+                    background: #FFFFFF;
+                    /* Gray/$-gray-100 */
+
+                    border: 1.5px solid #D4D4D7;
+                    border-radius: 8px;
+                    line-height: 40px;
+                    font-weight: 400;
+                    font-size: 16px;
+                    color: #A9A9B0;
+
+                    .ant-select-selector {
+                        width: 100% !important;
+                        border: none;
+                    }
+                }
+            }
+
+
+
+        }
+
+        .action__add {
+            display: flex;
+            padding: 24px 0px;
+            text-align: center;
+            justify-content: center;
+            align-items: center;
+
+            .btn__add {
+                width: 147px;
+                height: 48px;
+                border-radius: 8px;
+                line-height: 48px;
+                text-align: center;
+            }
+
+            .btn_cancel {
+                border: 1.5px solid #FF9138;
+                background: #FFF2E7;
+                /* Orange/$-Orange-400 */
+
+                border: 1.5px solid #FF9138;
+                /* down */
+
+                box-shadow: 0px 0px 6px #E7E9F2;
+                font-weight: 700;
+                font-size: 16px;
+                color: #FF9138;
+                margin-right: 32px;
+                cursor: pointer;
+            }
+
+            .btn__add_setting {
+                width: 147px;
+                height: 48px;
+                background: #FF9138;
+                box-shadow: 0px 0px 6px #E7E9F2;
+                border-radius: 8px;
+                font-weight: 700;
+                font-size: 16px;
+                color: #FFFFFF;
+                cursor: pointer;
+            }
+        }
+    }
+
+
+
+    .spin_loading {
+        width: 97%;
+        height: 82%;
+        background: #0000;
+        text-align: center;
+        position: absolute;
+        z-index: 9;
+
+        .ant-spin-dot {
+            font-size: 20px;
+            width: 3em;
+            height: 3em;
+            top: 9rem;
+
+            .ant-spin-dot-item {
+                width: 2rem;
+                height: 2rem;
+                background-color: #FF7506;
+            }
+        }
+    }
+}

@@ -43,11 +43,52 @@ div.d-flex.flex-column {
     }
 }
 
+.ant-modal-content {
+    border-radius: 3rem;
+
+    .ant-modal-body {
+        text-align: center;
+
+        .add-provide-modal-title {
+            font-size: 3rem;
+            font-weight: 700;
+        }
+
+        .add-provide-modal-order {
+            font-size: 5rem;
+            font-weight: 700;
+            color: #FF7506;
+            margin-bottom: 0;
+        }
+
+        .add-provide-modal-service {
+            font-size: 2rem;
+        }
+    }
+
+    .ant-modal-footer {
+        padding: 2rem;
+        font-size: 2.3rem;
+        background-color: #FF7506;
+        color: white;
+        border-top: none;
+        text-align: center;
+        line-height: 5rem;
+        border-radius: 0 0 3rem 3rem;
+
+        p {
+            margin-bottom: 0;
+        }
+    }
+}
+
 
 
 .add__provide_page {
     padding-left: 1.6rem;
     position: relative;
+
+
 
     .add_provide {
         margin-top: 50px;

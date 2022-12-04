@@ -9,6 +9,9 @@ import server from './server';
 import device from './device';
 import service from './service';
 import provide from './provide';
+import rule from './rule';
+import account from './account';
+import log from './log'
 
 export default {
   ...viVN,
@@ -21,4 +24,7 @@ export default {
   ...device,
   ...service,
   ...provide,
+  ...rule,
+  ...account,
+  ...log,
 };

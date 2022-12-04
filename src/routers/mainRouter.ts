@@ -7,14 +7,14 @@ import { routerViewAddProvide, routerViewDetailProvide, routerViewProvideNumber 
 import { routerViewReport } from '@view/Report/router';
 import { routerViewRoot } from '@view/router';
 import { routerViewAddService, routerViewDetailService, routerViewService, routerViewUpdateService } from '@view/Service/router';
-import { routerViewSetting } from '@view/SettingSystem/router';
+import { routerViewAddRole, routerViewSetting, routerViewUpdateRole } from '@view/SettingSystem/router';
 
 import { IRouter } from './interface';
 
 export const privatePage: IRouter[] = [routerViewRoot, routerHomepage, routerViewProfile, routerViewDevice, routerViewService, routerViewAddService,
   routerViewDetailService, routerViewUpdateService,
   routerViewProvideNumber, routerViewAddProvide, routerViewDetailProvide,
-  routerViewReport, routerViewSetting, routerViewAddDevice, routerViewDetailDevice, routerViewUpdateDevice
+  routerViewReport, routerViewSetting, routerViewAddDevice, routerViewDetailDevice, routerViewUpdateDevice, routerViewAddRole, routerViewUpdateRole
 ];
 
 export const publicPage: IRouter[] = [routerLogin, routerForgotPassword, routerResetPassword];
