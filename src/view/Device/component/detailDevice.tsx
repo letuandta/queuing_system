@@ -128,7 +128,7 @@ const DetailDevice = () => {
                     </div>
                 </div>
             </div>
-            <Link to={'/device/update'}>
+            <Link to={`/device/update/${deviceId}`}>
                 <div className='btn_add_device'>
                     <ReactSVG src={addButton} />
                     <p>{formatMessage('device.update')}</p>

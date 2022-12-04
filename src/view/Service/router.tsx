@@ -30,9 +30,9 @@ export const routerViewDetailService: IRouter = {
   exact: true
 }
 
-// export const routerViewUpdateDevice: IRouter = {
-//   path: '/device/update/:deviceIdParam',
-//   name: "device.update",
-//   loader: import('./component/updateDevice'),
-//   exact: true
-// }
+export const routerViewUpdateService: IRouter = {
+  path: '/service/update/:serviceId',
+  name: "service.update",
+  loader: import('./component/updateService'),
+  exact: true
+}

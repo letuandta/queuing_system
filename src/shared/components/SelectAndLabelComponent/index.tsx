@@ -42,7 +42,7 @@ const SelectAndLabelComponent: React.FC<ISelectAndLabel> = (props: ISelectAndLab
     }
   };
   const className = props.className ? props.className : '';
-  // const all = intl.formatMessage({ id: 'common.all' });
+  const all = intl.formatMessage({ id: 'common.all' });
 
   const renderUIOption = React.useMemo(() => {
     if (dataString == null) {
@@ -87,7 +87,7 @@ const SelectAndLabelComponent: React.FC<ISelectAndLabel> = (props: ISelectAndLab
         {renderUILabel}
         <Select
           className={'select-custom ' + (props.classNameSelect || '')}
-          value={value == null ? null : value}
+          value={value == null ? all : value === '' ? null : value}
           defaultValue={props?.defaultValue ? props?.defaultValue : null}
           onChange={onChange}
           disabled={props.disabled}

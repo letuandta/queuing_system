@@ -15,3 +15,18 @@ export const routerViewProvideNumber: IRouter = {
     'hideInNavbar': false,
   },
 };
+
+
+export const routerViewAddProvide: IRouter = {
+  path: "/provide/add",
+  name: "provide.add",
+  loader: import("./component/addProvide"),
+  exact: true
+}
+
+export const routerViewDetailProvide: IRouter = {
+  path: '/provide/:provideId',
+  name: "provide.detail",
+  loader: import('./component/detailProvide'),
+  exact: true
+}

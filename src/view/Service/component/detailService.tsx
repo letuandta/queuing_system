@@ -14,7 +14,10 @@ import useTable from '@shared/components/TableComponent/hook';
 import SearchComponent from '@shared/components/SearchComponent';
 import { ColumnsType } from 'antd/lib/table';
 import CircleLabel from '@shared/components/CircleLabel';
-const dataTable = require('./fakedata/data.json');
+import DataPickerComponent from '@shared/components/DatePickerComponent';
+import SelectAndLabelComponent, { ISelectAndLabel } from '@shared/components/SelectAndLabelComponent';
+import ISelect from '@core/select';
+const dataTable = require('../fakedata/data.json');
 
 
 const DeatailService = () => {
@@ -74,6 +77,18 @@ const DeatailService = () => {
         setSearch(searchKey);
     };
 
+    const dataActiveStatus: ISelect[] = [{ label: 'common.all', value: undefined },
+    { label: 'common.active', value: "common.active" },
+    { label: 'common.deactive', value: "common.deactive" }];
+    const arraySelectFilter: ISelectAndLabel[] = [
+        { textLabel: 'Trạng thái hoạt động', dataString: dataActiveStatus, keyLabel: "activeStatus" },
+    ];
+
+    const onChangeSelectStatus = (name: string | undefined) => (status: any) => {
+        if (name && status) {
+            setFilterOption((pre: any) => ({ ...pre, field: name, value: status }));
+        }
+    }
 
 
     return (
@@ -87,7 +102,7 @@ const DeatailService = () => {
                             <div className="sub__title__detail">
                                 Thông tin thiết bị
                             </div>
-                            <div className="body__detail">
+                            <div className="body__detail custom-pagrap">
                                 {!loading &&
                                     <Spin />}
                                 <div>
@@ -109,7 +124,7 @@ const DeatailService = () => {
                             <div className="sub__title__detail">
                                 Quy tắt cấp số
                             </div>
-                            <div className="body__detail">
+                            <div className="body__detail custom-pagrap">
                                 {!loading &&
                                     <Spin />}
                                 <div>
@@ -143,7 +158,20 @@ const DeatailService = () => {
                         <Col span={14}>
                             <div className="body__detail">
                                 <div className="d-flex flex-row justify-content-md-between mb-3 align-items-end">
-
+                                    <div className="d-flex flex-row ">
+                                        {arraySelectFilter.map(item => (
+                                            <SelectAndLabelComponent
+                                                onChange={onChangeSelectStatus(item.keyLabel)}
+                                                key={item.name}
+                                                className={`margin-select ${item.keyLabel}`}
+                                                dataString={item.dataString}
+                                                textLabel={item.textLabel}
+                                            />
+                                        ))}
+                                        <DataPickerComponent
+                                            label='Chọn thời gian'
+                                        />
+                                    </div>
                                     <div className="d-flex flex-column ">
                                         <div className="label-select">{formatMessage('common.keyword')}</div>
                                         <SearchComponent

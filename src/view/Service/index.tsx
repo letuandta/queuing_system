@@ -79,7 +79,7 @@ const Service = () => {
         return (
           <>
             <Link
-              to={`/device/update/${record.id}`}
+              to={`/service/update/${record.id}`}
               style={{ textDecoration: "underline", color: "#4277FF", }}
             >Cập nhật</Link>
           </>

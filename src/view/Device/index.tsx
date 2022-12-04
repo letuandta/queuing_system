@@ -5,11 +5,7 @@ import { ColumnsType } from 'antd/lib/table';
 import React, { Key, useEffect, useState } from 'react';
 
 import ISelect from '@core/select';
-import RightMenu, { IArrayAction } from '@layout/RightMenu';
 import CircleLabel from '@shared/components/CircleLabel';
-import { DeleteConfirm } from '@shared/components/ConfirmDelete';
-import EditIconComponent from '@shared/components/EditIconComponent';
-import InformationIconComponent from '@shared/components/InformationIcon';
 import MainTitleComponent from '@shared/components/MainTitleComponent';
 import SearchComponent from '@shared/components/SearchComponent/SearchComponent';
 import SelectAndLabelComponent, {
