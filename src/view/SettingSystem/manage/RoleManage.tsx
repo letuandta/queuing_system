@@ -87,7 +87,7 @@ const RoleManage = () => {
           disableFirstCallApi={true}
         />
       </div>
-      <Link to={'/device/add'}>
+      <Link to={'/setting/manage/role/add'}>
         <div className='btn_add_setting'>
           <ReactSVG src={addButton} />
           <p>{formatMessage('rule.add')}</p>

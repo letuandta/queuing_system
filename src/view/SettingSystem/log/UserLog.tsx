@@ -104,13 +104,6 @@ const AccountManage = () => {
           disableFirstCallApi={true}
         />
       </div>
-      <Link to={'/device/add'}>
-        <div className='btn_add_setting'>
-          <ReactSVG src={addButton} />
-          <p>{formatMessage('account.add')}</p>
-        </div>
-      </Link>
-
     </div>
   );
 };

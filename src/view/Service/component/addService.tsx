@@ -29,7 +29,7 @@ const AddService: React.FC = () => {
         serviceName: '',
         description: '',
         activeStatus: true,
-        key: 10,
+        key: 20,
         provideRule: {
             autoFrom: 0,
             autoTo: 0,

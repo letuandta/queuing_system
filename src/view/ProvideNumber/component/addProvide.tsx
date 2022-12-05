@@ -28,7 +28,7 @@ const AddProvide: React.FC = () => {
         key: 60,
         Name: 'Lê Tuấn Đat',
         service: serviceType,
-        order: 2010060,
+        order: 2010070,
         start: '',
         end: '',
         device: 'Kiosk',
@@ -142,7 +142,7 @@ const AddProvide: React.FC = () => {
                 footer={[
                     <>
                         <p>Thời gian cấp: {addModal.start !== '' ? moment(addModal.start).format('HH:mm - DD/MM/YYYY') : ''}</p>
-                        <p>Thời gian cấp: {addModal.start !== '' ? moment(addModal.start).format('HH:mm - DD/MM/YYYY') : ''}</p>
+                        <p>Thời gian cấp: {addModal.start !== '' ? moment(addModal.end).format('HH:mm - DD/MM/YYYY') : ''}</p>
                     </>
                 ]}
             >

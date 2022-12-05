@@ -41,7 +41,7 @@ const AddDevice: React.FC = () => {
         activeStatus: true,
         connectStatus: true,
         serviceUse: `${servicesUse}`,
-        key: 31,
+        key: 40,
     }
 
     const onSelectDeviceTypeChange = (value: string) => {
