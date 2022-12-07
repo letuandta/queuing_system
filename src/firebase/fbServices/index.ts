@@ -1,7 +1,7 @@
 import { PaginationEntity } from "@core/pagination/entity";
-import { addDoc, collection, doc, getCountFromServer, getDoc, getDocs, limit, orderBy, query, setDoc, startAfter, updateDoc } from "firebase/firestore";
+import { addDoc, collection, doc, getCountFromServer, getDoc, getDocs, limit, orderBy, Query, query, QueryConstraint, setDoc, startAfter, updateDoc, where } from "firebase/firestore";
 import { FirebaseConfig } from "../configs";
-
+import lodash from 'lodash';
 
 
 const db = FirebaseConfig.getInstance().fbDB;
@@ -12,10 +12,26 @@ export const getDatas = async (paging: any, option: any, collectionName: any): P
   // const whereQuery = option.filter ? where(option.filter.field, "==", option.filter.value) : where("deviceName", "!=", " ")
   const deviceCollecttion = collection(db, collectionName)
 
-  const q = query(deviceCollecttion,
+  var q: Query = query(deviceCollecttion,
     orderBy('key'),
-    startAfter((paging.current - 1) * paging.pageSize),
-    limit(paging.pageSize));
+  )
+
+  if (!lodash.isEmpty(option.filter)) {
+
+    let conditions: QueryConstraint[] = []
+
+    option.filter.map(
+      fil => {
+        if (fil.value !== 'all') {
+          let check = fil.value === 'true'
+          conditions.push(where(`${fil.field}`, '==', typeof check === 'boolean' ? check : `${fil.value}`))
+        }
+      }
+    )
+
+    q = query(deviceCollecttion, ...conditions)
+  }
+
 
   const docs = getDocs(q)
   const count = getCountFromServer(deviceCollecttion);
@@ -26,17 +42,17 @@ export const getDatas = async (paging: any, option: any, collectionName: any): P
   const customdata = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
 
 
-  // console.group([
-  //   "===========================================================================",
-  //   customdata,
-  //   total.data().count,
-  //   paging,
-  //   option.filter.field,
-  //   option.filter.value,
-  //   "============================================================================"
-  // ]);
-  // console.groupEnd();
-  return { data: customdata, info: { total: total.data().count } }
+  console.group([
+    "===========================================================================",
+    customdata,
+    total.data().count,
+    paging,
+    option.filter,
+    "============================================================================"
+  ]);
+  console.groupEnd();
+  //  
+  return { data: customdata, info: { total: customdata.length } }
 }
 
 

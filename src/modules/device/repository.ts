@@ -2,6 +2,7 @@ import { PaginationEntity } from "@core/pagination/entity";
 import { addData, ChangeData, getDatas, getSingleData } from "src/firebase/fbServices"
 import DeviceEntity from "./entity";
 
+
 const collection = "device"
 
 const getDevices = (paging: any, option: any): Promise<{ data: Array<DeviceEntity>; info: PaginationEntity }> => {
