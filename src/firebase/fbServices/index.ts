@@ -23,9 +23,10 @@ export const getDatas = async (paging: any, option: any, collectionName: any): P
     option.filter.map(
       fil => {
         if (fil.value !== 'all') {
-          let check = fil.value === 'true'
+          let check = fil.value === 'true' ? true : fil.value === 'false' ? false : ''
           conditions.push(where(`${fil.field}`, '==', typeof check === 'boolean' ? check : `${fil.value}`))
         }
+        // conditions.push(orderBy('key'))
       }
     )
 
@@ -39,7 +40,11 @@ export const getDatas = async (paging: any, option: any, collectionName: any): P
   const data = await docs;
   const total = await count;
 
-  const customdata = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+  let customdata = data.docs.map(doc => ({ ...doc.data(), id: doc.id }));
+
+  if (option.search !== '') {
+    customdata = customdata.filter(data => Object.keys(data).some(key => typeof data[key] === 'string' ? data[key].includes(option.search) : false))
+  }
 
 
   console.group([
@@ -47,7 +52,7 @@ export const getDatas = async (paging: any, option: any, collectionName: any): P
     customdata,
     total.data().count,
     paging,
-    option.filter,
+    option,
     "============================================================================"
   ]);
   console.groupEnd();

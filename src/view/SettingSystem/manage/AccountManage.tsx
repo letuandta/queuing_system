@@ -24,7 +24,9 @@ const AccountManage = () => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState<Key[]>([]);
   const [search, setSearch] = useState<string>('');
-  const [filter, setFilterOption] = useState<any>();
+  const [filter, setFilterOption] = useState<{ field: string | undefined, value: string | number | undefined }[]>(
+    []
+  );
 
   const idChooses = 'id';
   const columns: ColumnsType<RuleEntity> = [
@@ -83,7 +85,7 @@ const AccountManage = () => {
   ]
 
   useEffect(() => {
-    table.fetchData({ option: { search: search, filter: { ...filter } } });
+    table.fetchData({ option: { search: search, filter: filter } });
   }, [search, filter, table]);
 
   const handleSearch = (searchKey: string) => {
@@ -92,12 +94,22 @@ const AccountManage = () => {
 
   const onChangeSelectStatus = (name: string | undefined) => (status: any) => {
     if (name && status) {
-      setFilterOption((pre: any) => ({ ...pre, field: name, value: status }));
+      let filterTemp = filter
+      let checkExist = filter.findIndex(obj => obj.field === name)
+
+      if (checkExist >= 0) {
+        filterTemp[checkExist].value = status
+      }
+      else {
+        filter.push({ field: name, value: status })
+      }
+
+      setFilterOption(filterTemp.map(fil => fil));
     }
   };
 
-  const dataRoles: ISelect[] = [{ label: 'common.all', value: undefined },
-  { label: 'Kê toán', value: "Kê toán" },
+  const dataRoles: ISelect[] = [{ label: 'common.all', value: 'all' },
+  { label: 'Kê toán', value: "Kế toán" },
   { label: 'Bác sĩ', value: "Bác sĩ" },
   { label: 'Lễ tân', value: "Lễ tân" },
   { label: 'Quản lí', value: "Quản lí" },
@@ -105,7 +117,7 @@ const AccountManage = () => {
   { label: 'SuperAdmin', value: "SuperAdmin" },
   ];
   const arraySelectFilter: ISelectAndLabel[] = [
-    { textLabel: 'Tên vai trò', dataString: dataRoles, keyLabel: "role" }
+    { textLabel: 'Tên vai trò', dataString: dataRoles, keyLabel: "rule" }
   ];
 
   return (
@@ -136,7 +148,7 @@ const AccountManage = () => {
         <TableComponent
           apiServices={accountPresenter.getAccounts}
           translateFirstKey="account"
-          defaultOption={filter}
+          // defaultOption={filter}
           rowKey={res => res[idChooses]}
           register={table}
           columns={columns}

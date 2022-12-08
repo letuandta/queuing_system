@@ -27,7 +27,6 @@ const AccountManage = () => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState<Key[]>([]);
   const [search, setSearch] = useState<string>('');
-  const [filter, setFilterOption] = useState<any>();
 
   const idChooses = 'id';
   const columns: ColumnsType<RuleEntity> = [
@@ -61,17 +60,11 @@ const AccountManage = () => {
   ]
 
   useEffect(() => {
-    table.fetchData({ option: { search: search, filter: { ...filter } } });
-  }, [search, filter, table]);
+    table.fetchData({ option: { search: search } });
+  }, [search, table]);
 
   const handleSearch = (searchKey: string) => {
     setSearch(searchKey);
-  };
-
-  const onChangeSelectStatus = (name: string | undefined) => (status: any) => {
-    if (name && status) {
-      setFilterOption((pre: any) => ({ ...pre, field: name, value: status }));
-    }
   };
 
   return (
@@ -96,7 +89,7 @@ const AccountManage = () => {
         <TableComponent
           apiServices={logPresenter.getLogs}
           translateFirstKey="account"
-          defaultOption={filter}
+          // defaultOption={filter}
           rowKey={res => res[idChooses]}
           register={table}
           columns={columns}

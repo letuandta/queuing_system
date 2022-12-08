@@ -28,7 +28,9 @@ const ProvideNumber = () => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState<Key[]>([]);
   const [search, setSearch] = useState<string>('');
-  const [filter, setFilterOption] = useState<any>();
+  const [filter, setFilterOption] = useState<{ field: string | undefined, value: string | number | undefined }[]>(
+    []
+  );
 
   const idChooses = 'id'; //get your id here. Ex: accountId, userId,...
   const columns: ColumnsType<ProvideEntity> = [
@@ -109,23 +111,27 @@ const ProvideNumber = () => {
 
 
 
-  const dataService: ISelect[] = [{ label: 'common.all', value: undefined },
-  { label: 'common.active', value: "common.active" },
-  { label: 'common.deactive', value: "common.deactive" }];
-  const dataStatus: ISelect[] = [{ label: 'common.all', value: undefined },
-  { label: 'common.active', value: "common.active" },
-  { label: 'common.deactive', value: "common.deactive" }];
-  const dataDevice: ISelect[] = [{ label: 'common.all', value: undefined },
-  { label: 'common.statusConnect', value: "common.statusConnect" },
-  { label: 'common.statusDisconnect', value: "common.statusDisconnect" }];
+  const dataService: ISelect[] = [{ label: 'common.all', value: 'all' },
+  { label: 'Khám tim mạch', value: "Khám tim mạch" },
+  { label: 'Khám sản - phụ khoa', value: "Khám sản - phụ khoa" },
+  { label: 'Khám tai mũi họng', value: "Khám tai mũi họng" },
+  { label: 'Khám răng hàm mặt', value: "Khám răng hàm mặt" },
+  { label: 'Khám tổng quát', value: "Khám tổng quát" },
+  { label: 'Khám hô hấp', value: "Khám hô hấp" }];
+  const dataStatus: ISelect[] = [{ label: 'common.all', value: 'all' },
+  { label: 'Đang chờ', value: "Đang chờ" },
+  { label: 'Đã sử dụng', value: "Đã sử dụng" },
+  { label: 'Bỏ qua', value: "Bỏ qua" }];
+  const dataDevice: ISelect[] = [{ label: 'common.all', value: 'all' },
+  { label: 'Kiosk', value: "Kiosk" }];
   const arraySelectFilter: ISelectAndLabel[] = [
-    { textLabel: 'Tên dịch vụ', dataString: dataService, keyLabel: "Service" },
-    { textLabel: 'Tình trạng', dataString: dataStatus, keyLabel: "Status" },
-    { textLabel: 'Nguồn cấp', dataString: dataDevice, keyLabel: "Device" },
+    { textLabel: 'Tên dịch vụ', dataString: dataService, keyLabel: "service" },
+    { textLabel: 'Tình trạng', dataString: dataStatus, keyLabel: "status" },
+    { textLabel: 'Nguồn cấp', dataString: dataDevice, keyLabel: "device" },
   ];
 
   useEffect(() => {
-    table.fetchData({ option: { search: search, filter: { ...filter } } });
+    table.fetchData({ option: { search: search, filter: filter } });
   }, [search, filter, table]);
 
   const handleSearch = (searchKey: string) => {
@@ -134,7 +140,17 @@ const ProvideNumber = () => {
 
   const onChangeSelectStatus = (name: string | undefined) => (status: any) => {
     if (name && status) {
-      setFilterOption((pre: any) => ({ ...pre, field: name, value: status }));
+      let filterTemp = filter
+      let checkExist = filter.findIndex(obj => obj.field === name)
+
+      if (checkExist >= 0) {
+        filterTemp[checkExist].value = status
+      }
+      else {
+        filter.push({ field: name, value: status })
+      }
+
+      setFilterOption(filterTemp.map(fil => fil));
     }
   };
   return (
@@ -167,7 +183,7 @@ const ProvideNumber = () => {
         </div>
         <TableComponent
           apiServices={providePresenter.getProvides}
-          defaultOption={filter}
+          // defaultOption={filter}
           translateFirstKey="provide"
           rowKey={res => res[idChooses]}
           register={table}

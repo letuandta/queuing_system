@@ -30,7 +30,9 @@ const Service = () => {
 
   const [selectedRowKeys, setSelectedRowKeys] = useState<Key[]>([]);
   const [search, setSearch] = useState<string>('');
-  const [filter, setFilterOption] = useState<any>();
+  const [filter, setFilterOption] = useState<{ field: string | undefined, value: string | number | undefined }[]>(
+    []
+  );
 
   const idChooses = 'id'; //get your id here. Ex: accountId, userId,...
   const columns: ColumnsType<ServiceEntity> = [
@@ -90,20 +92,20 @@ const Service = () => {
   ];
 
   const handleRefresh = () => {
-    table.fetchData({ option: { search: search, filter: { ...filter } } });
+    table.fetchData({ option: { search: search, filter: filter } });
     setSelectedRowKeys([]);
   };
 
 
-  const dataActiveStatus: ISelect[] = [{ label: 'common.all', value: undefined },
-  { label: 'common.active', value: "common.active" },
-  { label: 'common.deactive', value: "common.deactive" }];
+  const dataActiveStatus: ISelect[] = [{ label: 'common.all', value: 'all' },
+  { label: 'common.active', value: "true" },
+  { label: 'common.deactive', value: "false" }];
   const arraySelectFilter: ISelectAndLabel[] = [
     { textLabel: 'Trạng thái hoạt động', dataString: dataActiveStatus, keyLabel: "activeStatus" },
   ];
 
   useEffect(() => {
-    table.fetchData({ option: { search: search, filter: { ...filter } } });
+    table.fetchData({ option: { search: search, filter: filter } });
   }, [search, filter, table]);
 
   const handleSearch = (searchKey: string) => {
@@ -112,7 +114,17 @@ const Service = () => {
 
   const onChangeSelectStatus = (name: string | undefined) => (status: any) => {
     if (name && status) {
-      setFilterOption((pre: any) => ({ ...pre, field: name, value: status }));
+      let filterTemp = filter
+      let checkExist = filter.findIndex(obj => obj.field === name)
+
+      if (checkExist >= 0) {
+        filterTemp[checkExist].value = status
+      }
+      else {
+        filter.push({ field: name, value: status })
+      }
+
+      setFilterOption(filterTemp.map(fil => fil));
     }
   };
   return (
@@ -145,7 +157,7 @@ const Service = () => {
         </div>
         <TableComponent
           apiServices={servicePresenter.getServices}
-          defaultOption={filter}
+          // defaultOption={filter}
           translateFirstKey="service"
           rowKey={res => res[idChooses]}
           register={table}
